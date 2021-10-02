@@ -1,0 +1,8 @@
+.imgBg {
+  background-image: url("./../../imgs/stadium.jpg");
+  background-color: rgba(0, 0, 0, 0.185);
+  width: 100%;
+  min-height: 400px;
+  background-position: 50% 55%;
+  background-blend-mode: darken;
+}

@@ -1,0 +1,24 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+}
+
+.navGroup {
+  display: flex;
+}
+
+.linkContainer {
+  padding: 0 2rem;
+}
+
+.linkContainer:last-child {
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
