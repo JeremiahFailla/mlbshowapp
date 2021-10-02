@@ -10,9 +10,24 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background: black;
+  background: rgb(29, 29, 29);
 }
 
 #root {
   width: 100%;
+}
+
+.flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
 }

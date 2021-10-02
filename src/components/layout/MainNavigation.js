@@ -5,8 +5,8 @@ import classes from "./MainNavigation.module.css";
 const MainNavigation = () => {
   return (
     <nav>
-      <Link to="/" className={classes.link}>
-        MLBiT
+      <Link to="/" className={`${classes.link} ${classes.logo}`}>
+        GoingPro
       </Link>
       <div className={classes.navGroup}>
         <ul className={classes.linkContainer}>

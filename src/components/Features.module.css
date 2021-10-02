@@ -1,0 +1,28 @@
+.toolArea {
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgb(29, 29, 29);
+}
+
+.toolArea p {
+  padding: 1rem 1rem 0.5rem;
+  margin-bottom: 1rem;
+  color: orange;
+  border-bottom: 5px solid;
+  display: inline-block;
+}
+
+.tools {
+  justify-content: space-evenly;
+}
+
+.tools a {
+  padding: 1rem;
+  flex: 1;
+  text-decoration: none;
+  color: orange;
+}
+
+.tools a:hover {
+  background: black;
+}
