@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../components/layout/Card";
 import classes from "./pageStyles/Welcome.module.css";
 
-import { Features } from "../components/Features";
+import Features from "../components/Features";
 
 const Welcome = () => {
   return (
@@ -17,7 +17,7 @@ const Welcome = () => {
         <div className={classes.description}>
           <p>The Site that all the show players have been waiting for. </p>
         </div>
-        <Features />
+        <Features title="welc" />
         <div className={classes.updates}>
           <p>
             Watch out for the latest Roster Updates to see which of your

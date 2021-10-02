@@ -1,16 +1,26 @@
 import React from "react";
-import classes from "./Features.module.css";
+import classes from "./styles/Features.module.css";
 import { Link } from "react-router-dom";
 
-export const Features = () => {
+const Features = (props) => {
+  const title =
+    props.title === "welc"
+      ? "Tryout These Tools"
+      : "Checkout These Other Tools";
   return (
     <div className={classes.toolArea}>
-      <p>Tryout These New Tools</p>
+      <p>{title}</p>
       <div className={`${classes.tools} flex`}>
-        <Link>Build a Team</Link>
-        <Link>Search Players</Link>
-        <Link>Compare Players</Link>
+        {props.page !== "build" && <Link to="/build-team">Build a Team</Link>}
+        {props.page !== "search" && (
+          <Link to="search-players">Search Players</Link>
+        )}
+        {props.page !== "compare" && (
+          <Link to="compare-players">Compare Players</Link>
+        )}
       </div>
     </div>
   );
 };
+
+export default Features;

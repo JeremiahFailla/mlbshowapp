@@ -1,0 +1,19 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 4px;
+  padding: 10px;
+}
+
+.grid div {
+  padding: 1rem;
+  color: orange;
+  border: 1px solid black;
+}
+
+.grid div:hover,
+.grid div:visited {
+  background: black;
+  cursor: pointer;
+}
