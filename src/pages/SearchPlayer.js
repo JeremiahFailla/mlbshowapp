@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import classes from "./pageStyles/SearchPlayers.module.css";
 import Features from "../components/Features";
 import PlayersList from "../components/PlayersList";
+import SearchBar from "../components/searchBar/SearchBar";
 
 const SearchPlayer = () => {
   const playersFound = useState(false);
@@ -23,7 +24,9 @@ const SearchPlayer = () => {
   // }, []);
   return (
     <React.Fragment>
-      <Card></Card>
+      <Card>
+        <SearchBar />
+      </Card>
       <div className={classes.body}>
         <div className={classes.title}>
           <h1>Search For Your Favorite Players</h1>

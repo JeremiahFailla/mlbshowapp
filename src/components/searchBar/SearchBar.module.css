@@ -1,0 +1,48 @@
+.submit,
+.league,
+.division,
+.nameInput {
+  outline: 0;
+  border: none;
+  height: 40px;
+}
+
+.form {
+  border-radius: 20px;
+}
+
+.nameInput {
+  font-size: 1rem;
+  padding: 0 10px;
+}
+
+.submit {
+  border-radius: 20px 0 0 20px;
+  font-size: 15px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.submit:hover,
+.searchIcon:hover {
+  background: orange;
+}
+
+.division,
+.league {
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.division {
+  border-radius: 0 20px 20px 0;
+}
+
+.searchIcon:hover {
+  cursor: pointer;
+}
+
+.division:focus {
+  border-radius: 0 20px 0 0;
+}

@@ -1,7 +1,7 @@
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   font-size: 1.3rem;
   color: rgb(255, 255, 255);
 }
@@ -25,4 +25,7 @@ nav {
 
 .logo {
   color: orange;
+  border-radius: 10px 0 10px 0;
+  outline: 2px solid orange;
+  outline-offset: 10px;
 }
