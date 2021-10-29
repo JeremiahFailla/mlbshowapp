@@ -1,0 +1,16 @@
+.container {
+  background: rgba(214, 214, 214, 0.815);
+  border-radius: 0 0 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.content,
+.content:active {
+  border-bottom: 2px solid orange;
+  padding-bottom: 5px;
+  text-decoration: none;
+  color: black;
+}

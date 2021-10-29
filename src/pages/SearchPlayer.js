@@ -7,6 +7,7 @@ import classes from "./pageStyles/SearchPlayers.module.css";
 import Features from "../components/Features";
 import PlayersList from "../components/PlayersList";
 import SearchBar from "../components/searchBar/SearchBar";
+import Footer from "../components/layout/Footer";
 
 const SearchPlayer = () => {
   const playersFound = useState(false);
@@ -36,14 +37,34 @@ const SearchPlayer = () => {
         </div>
         <PlayersList
           players={[
-            "Austin Hays",
-            "Cedric Mullins",
-            "Trey Mancini",
-            "Ryan Mountcastle",
+            {
+              name: "Austin Hays",
+              number: 21,
+              position: "LF",
+              overall: 81,
+              bats: "R",
+              throws: "R",
+              secondary: "CF, RF",
+              weight: 210,
+              height: "6'",
+              age: 26,
+              born: "7/5/95",
+              conR: 75,
+              conL: 75,
+              pwrR: 81,
+              pwrL: 90,
+              vis: 60,
+              disc: 52,
+              clu: 80,
+              spd: 79,
+              stl: 65,
+              brAgg: 85,
+            },
           ]}
         />
 
         <Features page="search" />
+        <Footer />
       </div>
     </React.Fragment>
   );

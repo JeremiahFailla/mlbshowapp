@@ -3,6 +3,7 @@ import Card from "../components/layout/Card";
 import classes from "./pageStyles/Welcome.module.css";
 
 import Features from "../components/Features";
+import Footer from "../components/layout/Footer";
 
 const Welcome = () => {
   return (
@@ -24,6 +25,7 @@ const Welcome = () => {
             favorite players got upgrades or downgrades
           </p>
         </div>
+        <Footer />
       </div>
     </React.Fragment>
   );
