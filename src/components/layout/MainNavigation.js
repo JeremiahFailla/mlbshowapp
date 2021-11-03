@@ -10,17 +10,29 @@ const MainNavigation = () => {
       </Link>
       <div className={classes.navGroup}>
         <ul className={classes.linkContainer}>
-          <NavLink to="/build-team" className={classes.link}>
+          <NavLink
+            to="/build-team"
+            activeClassName={classes.active}
+            className={classes.link}
+          >
             Build Team
           </NavLink>
         </ul>
         <ul className={classes.linkContainer}>
-          <NavLink to="search-players" className={classes.link}>
+          <NavLink
+            to="search-players"
+            activeClassName={classes.active}
+            className={classes.link}
+          >
             Search Player
           </NavLink>
         </ul>
         <ul className={classes.linkContainer}>
-          <NavLink to="compare-players" className={classes.link}>
+          <NavLink
+            to="compare-players"
+            activeClassName={classes.active}
+            className={classes.link}
+          >
             Compare Players
           </NavLink>
         </ul>

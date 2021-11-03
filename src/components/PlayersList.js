@@ -24,7 +24,8 @@ const PlayersList = (props) => {
     <div className={classes.grid}>
       {props.players.map((player) => (
         <div key={player.id} onClick={onPlayerClick.bind(this, player)}>
-          {player.name}
+          <div>{player.overall}</div>
+          <div>{player.name}</div>
         </div>
       ))}
       {modalOpen && <DisplayStats player={selectedPlayer} />}

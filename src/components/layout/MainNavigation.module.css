@@ -6,6 +6,12 @@ nav {
   color: rgb(255, 255, 255);
 }
 
+.active {
+  color: orange !important;
+  border-bottom: 1px solid orange;
+  margin-bottom: -1px;
+}
+
 .navGroup {
   display: flex;
 }
@@ -21,6 +27,11 @@ nav {
 .link {
   text-decoration: none;
   color: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover {
+  color: rgba(255, 166, 0, 0.568);
 }
 
 .logo {

@@ -8,8 +8,10 @@
 
 .grid div {
   padding: 1rem;
+  border-radius: 2000px;
+  background: rgba(255, 255, 255, 0.527);
   color: orange;
-  border: 1px solid black;
+  transition: all 0.3s ease-in-out;
 }
 
 .grid div:hover,
