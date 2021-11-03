@@ -1,4 +1,10 @@
-import { onSnapshot, collection } from "@firebase/firestore";
+import {
+  onSnapshot,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "@firebase/firestore";
 import React, { useEffect, useState } from "react";
 import Card from "../components/layout/Card";
 import db from "./../firebase/firebase.config";
@@ -9,19 +15,41 @@ import PlayersList from "../components/PlayersList";
 import SearchBar from "../components/searchBar/SearchBar";
 import Footer from "../components/layout/Footer";
 
+// const getData = async () => {
+//   // const q = query(
+//   //   collection(db, "players"),
+//   //   where("name", "==", "Austin Hays")
+//   // );
+//   const citiesRef = collection(db, "players");
+//   // Create a query against the collection.
+//   let q = query(citiesRef, where("name", "==", "james"));
+//   // q = query(citiesRef, where("name", "==", "Austin Hays"));
+
+//   const querySnapshot = await getDocs(q);
+//   querySnapshot.forEach((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     console.log(doc.id, " => ", doc.data());
+//   });
+// };
+
 const SearchPlayer = () => {
   const playersFound = useState(false);
-  // const state = useSelector((state) => state.state);
-  const dispatch = useDispatch();
 
-  const addPlayer = (selectedPlayer) => {
-    dispatch({ type: "add", player: selectedPlayer });
-  };
+  // const dispatch = useDispatch();
+
+  // const addPlayer = (selectedPlayer) => {
+  //   dispatch({ type: "add", player: selectedPlayer });
+  // };
 
   // useEffect(() => {
-  //   onSnapshot(collection(db, "players"), (snapshot) => {
-  //     console.log(snapshot.docs.map((doc) => doc.data()));
-  //   });
+  //   // onSnapshot(collection(db, "players"), (snapshot) => {
+  //   //   console.log(snapshot.docs.map((doc) => doc.data()));
+  //   // });
+  //   // const citiesRef = collection(db, "players");
+  //   // // Create a query against the collection.
+  //   // const q = query(citiesRef, where("name", "==", "Austin Hays"));
+  //   // console.log(q);
+  //   // getData();
   // }, []);
   return (
     <React.Fragment>
@@ -38,6 +66,7 @@ const SearchPlayer = () => {
         <PlayersList
           players={[
             {
+              id: 0,
               name: "Austin Hays",
               number: 21,
               position: "LF",

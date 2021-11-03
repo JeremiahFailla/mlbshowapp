@@ -1,0 +1,52 @@
+.playerStats {
+  position: relative;
+}
+
+.nameArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nameArea span {
+  padding: 10px 20px;
+}
+
+td {
+  text-align: center;
+}
+
+table {
+  border-top: 1px solid black;
+  margin-bottom: 1rem;
+  padding-top: 10px;
+}
+
+.running {
+  color: rgb(0, 132, 255);
+}
+
+.fielding {
+  color: green;
+}
+
+.batting {
+  color: rgb(255, 123, 0);
+}
+
+.btn {
+  margin: 0 auto;
+  outline: 0;
+  border: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.btnIcon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btnIcon:hover {
+  color: orange;
+}

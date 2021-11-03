@@ -1,24 +1,33 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import DisplayStats from "./displayStats/DisplayStats";
 import classes from "./styles/PlayersList.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const PlayersList = (props) => {
-  const [showStats, setShowStats] = useState(false);
+  const modalOpen = useSelector((state) => state.modalState);
+  const selectedPlayer = useSelector((state) => state.selectedPlayer);
+  const dispatch = useDispatch();
 
-  const addBackground = (e) => {
-    setShowStats(true);
-    e.target.style.backgroundColor = "black";
+  const openModal = () => {
+    dispatch({ type: "openModal" });
+  };
+
+  const clickedPlayer = (player) => {
+    dispatch({ type: "selectedPlayer", selectedPlayer: player });
+  };
+
+  const onPlayerClick = (player) => {
+    openModal();
+    clickedPlayer(player);
   };
   return (
     <div className={classes.grid}>
-      {props.players.map((player, i) => (
-        <Fragment>
-          <div onClick={addBackground} key={i}>
-            {player.name}
-          </div>
-          <div>{showStats && <DisplayStats player={player} />}</div>
-        </Fragment>
+      {props.players.map((player) => (
+        <div key={player.id} onClick={onPlayerClick.bind(this, player)}>
+          {player.name}
+        </div>
       ))}
+      {modalOpen && <DisplayStats player={selectedPlayer} />}
     </div>
   );
 };

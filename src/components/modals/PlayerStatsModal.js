@@ -1,9 +1,15 @@
 import React, { Fragment } from "react";
 import classes from "./PlayerStatsModal.module.css";
 import ReactDOM from "react-dom";
+import { useDispatch } from "react-redux";
 
 const Backdrop = () => {
-  return <div className={classes.backdrop}></div>;
+  const dispatch = useDispatch();
+
+  const closeModal = () => {
+    dispatch({ type: "closeModal" });
+  };
+  return <div className={classes.backdrop} onClick={closeModal}></div>;
 };
 
 const ModalOverlay = (props) => {
