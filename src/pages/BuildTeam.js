@@ -2,6 +2,7 @@ import React from "react";
 import Features from "../components/Features";
 import Card from "../components/layout/Card";
 import Footer from "../components/layout/Footer";
+import BuildTeamPlayers from "../components/teamPlayers/BuildTeamPlayers";
 import PlayersList from "../components/PlayersList";
 import SearchBar from "../components/searchBar/SearchBar";
 import classes from "./pageStyles/BuildTeam.module.css";
@@ -20,7 +21,8 @@ const BuildTeam = () => {
           <p>
             Create the team that you have always wanted with any current active
             players. Simply search for players using the above searchbar and
-            place them into your lineup and rotation located below
+            select player and place them into the lineup, rotation, bullpen, or
+            bench. To view a players attributes, double click their name
           </p>
         </div>
         <PlayersList
@@ -30,6 +32,7 @@ const BuildTeam = () => {
               name: "Austin Hays",
               number: 21,
               position: "LF",
+              rating: "gold",
               overall: 81,
               bats: "R",
               throws: "R",
@@ -50,7 +53,9 @@ const BuildTeam = () => {
               brAgg: 85,
             },
           ]}
+          type="double"
         />
+        <BuildTeamPlayers />
         <Features page="build" />
         <Footer />
       </div>

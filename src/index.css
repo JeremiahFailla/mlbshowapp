@@ -32,3 +32,19 @@ body {
 .flex {
   display: flex;
 }
+
+.gold {
+  background: gold;
+}
+
+.silver {
+  background: silver;
+}
+
+.bronze {
+  background: rgb(206, 138, 14);
+}
+
+#overlays {
+  overflow: hidden;
+}

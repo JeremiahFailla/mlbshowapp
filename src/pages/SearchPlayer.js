@@ -90,6 +90,7 @@ const SearchPlayer = () => {
               brAgg: 85,
             },
           ]}
+          type="click"
         />
 
         <Features page="search" />

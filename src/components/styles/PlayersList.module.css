@@ -6,16 +6,33 @@
   padding: 10px;
 }
 
-.grid div {
-  padding: 1rem;
+.grid .playerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
   border-radius: 2000px;
   background: rgba(255, 255, 255, 0.527);
   color: orange;
   transition: all 0.3s ease-in-out;
 }
 
-.grid div:hover,
-.grid div:visited {
+.grid .playerCard:hover,
+.grid .playerCard:visited {
   background: black;
   cursor: pointer;
+}
+
+.playerCard div {
+  margin: 0 5px;
+}
+
+.diamond {
+  color: rgb(4, 0, 255);
+}
+
+.rating {
+  border-radius: 50%;
+  padding: 5px;
+  text-align: center;
 }

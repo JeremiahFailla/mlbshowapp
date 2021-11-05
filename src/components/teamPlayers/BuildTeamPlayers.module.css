@@ -1,0 +1,19 @@
+.container {
+  background: rgba(0, 0, 0, 0.87);
+}
+
+.starters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lineup,
+.rotation,
+.bullpen,
+.bench {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

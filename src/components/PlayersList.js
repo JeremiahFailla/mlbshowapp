@@ -20,17 +20,47 @@ const PlayersList = (props) => {
     openModal();
     clickedPlayer(player);
   };
-  return (
-    <div className={classes.grid}>
-      {props.players.map((player) => (
-        <div key={player.id} onClick={onPlayerClick.bind(this, player)}>
-          <div>{player.overall}</div>
-          <div>{player.name}</div>
-        </div>
-      ))}
-      {modalOpen && <DisplayStats player={selectedPlayer} />}
-    </div>
-  );
+
+  let content;
+
+  if (props.type === "click") {
+    content = (
+      <div className={classes.grid}>
+        {props.players.map((player) => (
+          <div
+            className={classes.playerCard}
+            key={player.id}
+            onClick={onPlayerClick.bind(this, player)}
+          >
+            <div className={`flex-c ${player.rating} ${classes.rating}`}>
+              {player.overall}
+            </div>
+            <div>{player.name}</div>
+          </div>
+        ))}
+        {modalOpen && <DisplayStats player={selectedPlayer} />}
+      </div>
+    );
+  } else if (props.type === "double") {
+    content = (
+      <div className={classes.grid}>
+        {props.players.map((player) => (
+          <div
+            className={classes.playerCard}
+            key={player.id}
+            onDoubleClick={onPlayerClick.bind(this, player)}
+          >
+            <div className={`flex-c ${player.rating} ${classes.rating}`}>
+              {player.overall}
+            </div>
+            <div>{player.name}</div>
+          </div>
+        ))}
+        {modalOpen && <DisplayStats player={selectedPlayer} />}
+      </div>
+    );
+  }
+  return content;
 };
 
 export default PlayersList;
