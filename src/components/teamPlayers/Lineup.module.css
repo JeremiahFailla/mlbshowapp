@@ -4,21 +4,6 @@
   border-bottom: 3px solid orange;
 }
 
-.playerSpot {
-  background: rgb(63, 63, 63);
-  padding: 1rem;
-  width: 400px;
-  text-align: center;
-  margin: 0.5rem;
-  border-radius: 5000px;
-  transition: all 0.2s ease-in-out;
-}
-
-.playerSpot:hover {
-  background: rgb(87, 87, 87);
-  cursor: pointer;
-}
-
 span {
   color: #fff;
 }

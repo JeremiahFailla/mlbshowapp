@@ -1,19 +1,57 @@
 .container {
   background: rgba(0, 0, 0, 0.87);
+  padding: 20px 0;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.positionPlayersBtnCont,
+.pitcherPlayersBtnCont {
+  border-radius: 2000px;
+  background: rgba(255, 255, 255, 0.349);
+  margin: 0.5rem 2rem;
+}
+
+.active {
+  border: 1px solid orange;
+  color: orange;
+}
+
+.inactive {
+  color: black !important;
+  border: 1px solid transparent !important;
+}
+
+.btn {
+  padding: 0.5rem;
+  background: transparent;
+
+  outline: 0;
+  border-radius: 2000px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .starters {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.lineup,
-.rotation,
-.bullpen,
-.bench {
+.positionPlayers,
+.pitcherPlayers {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.positionPlayers {
+  padding-right: 1rem;
+}
+
+.pitcherPlayers {
+  padding-left: 1rem;
 }
