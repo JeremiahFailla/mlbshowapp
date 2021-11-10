@@ -1,18 +1,20 @@
 import React, { Fragment } from "react";
 import AddPlayerCard from "./AddPlayerCard";
 import classes from "./Rotation.module.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const Rotation = () => {
+  const startingRotation = useSelector((state) => state.rotation);
   return (
-    <Fragment>
+    <div className={classes.animation}>
       <p className={classes.title}>Rotation</p>
-      {[...Array(5).keys()].map((el, i) => (
+      {startingRotation.map((el, i) => (
         <div className="flex-c">
           <span>{i + 1}. </span>
           <AddPlayerCard key={i} />
         </div>
       ))}
-    </Fragment>
+    </div>
   );
 };
 

@@ -49,6 +49,7 @@ const PlayersList = (props) => {
             className={classes.playerCard}
             key={player.id}
             onDoubleClick={onPlayerClick.bind(this, player)}
+            onClick={clickedPlayer.bind(this, player)}
           >
             <div className={`flex-c ${player.rating} ${classes.rating}`}>
               {player.overall}

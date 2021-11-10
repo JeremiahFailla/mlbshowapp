@@ -1,4 +1,4 @@
-.playerSpot {
+.unoccupiedPlayerSpot {
   background: rgb(63, 63, 63);
   padding: 1rem;
   width: 350px;
@@ -8,7 +8,18 @@
   transition: all 0.2s ease-in-out;
 }
 
-.playerSpot:hover {
+.unoccupiedPlayerSpot:hover {
   background: rgb(87, 87, 87);
   cursor: pointer;
+}
+
+.occupiedPlayerSpot {
+  background: rgba(255, 166, 0, 0.472);
+  padding: 1rem;
+  color: orange;
+  width: 350px;
+  text-align: center;
+  margin: 0.5rem;
+  border-radius: 5000px;
+  transition: all 0.2s ease-in-out;
 }

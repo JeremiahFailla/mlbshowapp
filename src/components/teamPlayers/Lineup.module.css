@@ -2,8 +2,23 @@
   color: orange;
   font-size: 1.5rem;
   border-bottom: 3px solid orange;
+  text-align: center;
 }
 
 span {
   color: #fff;
+}
+
+.animation {
+  animation-name: moveDown;
+  animation-duration: 1s;
+}
+
+@keyframes moveDown {
+  from {
+    margin-top: -20px;
+  }
+  to {
+    margin-top: 0;
+  }
 }

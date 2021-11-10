@@ -1,0 +1,15 @@
+.playerSpot {
+  background: rgba(255, 166, 0, 0.657);
+  padding: 1rem;
+  width: 350px;
+  text-align: center;
+  margin: 0.5rem;
+  border-radius: 5000px;
+  transition: all 0.2s ease-in-out;
+  color: black;
+}
+
+.playerSpot:hover {
+  background: rgba(255, 166, 0, 0.335);
+  cursor: pointer;
+}

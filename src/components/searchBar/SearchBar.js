@@ -8,9 +8,9 @@ const SearchBar = () => {
   const [division, setDivision] = useState("All");
   const [divisionToggle, setDivisionToggle] = useState(true);
 
-  useEffect(() => {
-    console.log(league, division);
-  }, [league, division]);
+  // useEffect(() => {
+  //   console.log(league, division);
+  // }, [league, division]);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();

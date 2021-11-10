@@ -50,8 +50,30 @@
 
 .positionPlayers {
   padding-right: 1rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
 }
 
 .pitcherPlayers {
   padding-left: 1rem;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+}
+
+@keyframes moveInRight {
+  from {
+    margin-right: -40px;
+  }
+  to {
+    margin-right: 0;
+  }
+}
+
+@keyframes moveInLeft {
+  from {
+    margin-left: -40px;
+  }
+  to {
+    margin-left: 0;
+  }
 }

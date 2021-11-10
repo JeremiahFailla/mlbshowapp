@@ -4,20 +4,29 @@ import Lineup from "./Lineup";
 import Rotation from "./Rotation";
 import Bench from "./Bench";
 import Bullpen from "./Bullpen";
+import { useSelector, useDispatch } from "react-redux";
 
 const BuildTeamPlayers = () => {
   const [showLineup, setShowLineup] = useState(true);
   const [showRotation, setShowRotation] = useState(true);
-
+  const player = useSelector((state) => state.selectedPlayer);
   const activeClasses = `${classes.btn} ${classes.active}`;
   const inactiveClasses = `${classes.btn} ${classes.inactive}`;
 
-  const onPositionPlayerBtnHandler = () => {
-    setShowLineup(!showLineup);
+  const onShowLineupBtnHandler = () => {
+    setShowLineup(true);
   };
 
-  const onPitcherPlayerBtnHandler = () => {
-    setShowRotation(!showRotation);
+  const onShowBenchBtnHandler = () => {
+    setShowLineup(false);
+  };
+
+  const onShowRotationBtnHandler = () => {
+    setShowRotation(true);
+  };
+
+  const onShowBullpenBtnHandler = () => {
+    setShowRotation(false);
   };
 
   return (
@@ -26,13 +35,13 @@ const BuildTeamPlayers = () => {
         <div className={classes.positionPlayersBtnCont}>
           <button
             className={showLineup ? activeClasses : inactiveClasses}
-            onClick={onPositionPlayerBtnHandler}
+            onClick={onShowLineupBtnHandler}
           >
             Lineup
           </button>
           <button
             className={!showLineup ? activeClasses : inactiveClasses}
-            onClick={onPositionPlayerBtnHandler}
+            onClick={onShowBenchBtnHandler}
           >
             Bench
           </button>
@@ -40,13 +49,13 @@ const BuildTeamPlayers = () => {
         <div className={classes.pitcherPlayersBtnCont}>
           <button
             className={showRotation ? activeClasses : inactiveClasses}
-            onClick={onPitcherPlayerBtnHandler}
+            onClick={onShowRotationBtnHandler}
           >
             Rotation
           </button>
           <button
             className={!showRotation ? activeClasses : inactiveClasses}
-            onClick={onPitcherPlayerBtnHandler}
+            onClick={onShowBullpenBtnHandler}
           >
             Bullpen
           </button>
