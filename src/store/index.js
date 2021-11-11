@@ -42,6 +42,54 @@ const counterReducer = (state = defaultState, action) => {
       lineup: lineup,
     };
   }
+  if (action.type === "addPlayerToRotation") {
+    const rotation = state.rotation;
+    rotation[action.index] = action.player;
+    return {
+      ...state,
+      rotation: rotation,
+    };
+  }
+  if (action.type === "addPlayerToBullpen") {
+    const bullpen = state.bullpen;
+    bullpen[action.index] = action.player;
+    return {
+      ...state,
+      bullpen: bullpen,
+    };
+  }
+  if (action.type === "addPlayerToBench") {
+    const bench = state.bench;
+    bench[action.index] = action.player;
+    return {
+      ...state,
+      bench: bench,
+    };
+  }
+  if (action.type === "resetLineup") {
+    return {
+      ...state,
+      lineup: [...Array(9)],
+    };
+  }
+  if (action.type === "resetRotation") {
+    return {
+      ...state,
+      rotation: [...Array(5)],
+    };
+  }
+  if (action.type === "resetBullpen") {
+    return {
+      ...state,
+      bullpen: [...Array(6)],
+    };
+  }
+  if (action.type === "resetBench") {
+    return {
+      ...state,
+      bench: [...Array(5)],
+    };
+  }
   return state;
 };
 

@@ -4,19 +4,28 @@ import classes from "./AddPlayerCard.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
 const AddPlayerCard = ({ lineupPosition, addPlayer, players = "" }) => {
+  const [player, setPlayer] = useState(players);
   const selectedPlayer = useSelector((state) => state.selectedPlayer);
   const dispatch = useDispatch();
 
   const onSetCardHandler = () => {
     if (!selectedPlayer) return;
     console.log("Set card");
-    dispatch({ type: "unselectPlayer" });
     addPlayer(lineupPosition, selectedPlayer);
+    setPlayer(selectedPlayer);
+    dispatch({ type: "unselectPlayer" });
   };
 
+  const onSwapPlayerHandler = (e) => {
+    console.log(e.target);
+  };
+  useEffect(() => {
+    console.log(players);
+    setPlayer(players);
+  }, [players]);
   return (
     <React.Fragment>
-      {!players && (
+      {!player && (
         <div
           className={classes.unoccupiedPlayerSpot}
           onClick={onSetCardHandler}
@@ -24,8 +33,14 @@ const AddPlayerCard = ({ lineupPosition, addPlayer, players = "" }) => {
           <FaPlus className={classes.plus} />
         </div>
       )}
-      {players && (
-        <div className={classes.occupiedPlayerSpot}>{players.name}</div>
+      {player && (
+        <div
+          className={classes.occupiedPlayerSpot}
+          onClick={onSwapPlayerHandler}
+          data-id={lineupPosition}
+        >
+          {player.name}
+        </div>
       )}
     </React.Fragment>
   );

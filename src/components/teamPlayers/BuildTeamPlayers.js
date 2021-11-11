@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 const BuildTeamPlayers = () => {
   const [showLineup, setShowLineup] = useState(true);
   const [showRotation, setShowRotation] = useState(true);
-  const player = useSelector((state) => state.selectedPlayer);
+  // const player = useSelector((state) => state.selectedPlayer);
   const activeClasses = `${classes.btn} ${classes.active}`;
   const inactiveClasses = `${classes.btn} ${classes.inactive}`;
 
