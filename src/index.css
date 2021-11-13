@@ -33,8 +33,14 @@ body {
   display: flex;
 }
 
+.diamond {
+  background: rgb(4, 0, 255);
+  color: white;
+}
+
 .gold {
   background: gold;
+  color: black;
 }
 
 .silver {

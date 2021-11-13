@@ -4,23 +4,66 @@ import classes from "./Lineup.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import ResetBtn from "./ResetBtn";
 
-const Lineup = () => {
+const Lineup = React.memo(() => {
   const dispatch = useDispatch();
   const startingLineup = useSelector((state) => state.lineup);
-  const [players, setPlayers] = useState(startingLineup);
+  const bench = useSelector((state) => state.bench);
+
+  useEffect(() => {
+    console.log("Starting Lineup Changed");
+  }, [startingLineup]);
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: "unselectPlayerOnTeam" });
+    };
+  }, []);
 
   const addPlayerToLineup = (i, player) => {
+    // check to see if player is already in either lineup or on bench
+    let invalid = startingLineup.some((pl) => {
+      if (pl === undefined) return;
+      return pl.id === player.id;
+    });
+    if (!invalid) {
+      invalid = bench.some((pl) => {
+        if (pl === undefined) return;
+        return pl.id === player.id;
+      });
+    }
+
+    if (invalid) {
+      console.log("Player is all ready lineup or on bench");
+      return;
+    }
     dispatch({ type: "addPlayerToLineup", index: i, player: player });
+    dispatch({ type: "unselectPlayerOnTeam" });
   };
 
   const onResetLineupHandler = () => {
     dispatch({ type: "resetLineup" });
+    dispatch({ type: "unselectPlayerOnTeam" });
   };
 
-  // ------ Add Reset lineup button
-  useEffect(() => {
-    setPlayers(startingLineup);
-  }, [startingLineup]);
+  const onSelectPlayerOnTeam = (player, id, positionPlayer) => {
+    dispatch({
+      type: "selectedPlayerOnTeam",
+      player: player,
+      position: id,
+      positionPlayer: positionPlayer,
+    });
+  };
+
+  const swapLineupPositions = (player, position) => {
+    console.log("Swap Lineup Postions");
+    dispatch({
+      type: "swapPlayersInLineup",
+      player: player,
+      position: position,
+    });
+    dispatch({ type: "unselectPlayerOnTeam" });
+  };
+
   return (
     <div className={`${classes.animation}`}>
       <div className={`flex-c ${classes.titleContainer}`}>
@@ -28,19 +71,22 @@ const Lineup = () => {
         <ResetBtn resetFunc={onResetLineupHandler}>Reset Lineup</ResetBtn>
       </div>
 
-      {players.map((el, i) => (
+      {startingLineup.map((el, i) => (
         <div className={`flex-c`}>
           <span>{i + 1}. </span>
           <AddPlayerCard
-            key={i}
+            key={Math.random()}
             lineupPosition={i}
             addPlayer={addPlayerToLineup}
-            players={el}
+            player={el}
+            selectPlayerFunc={onSelectPlayerOnTeam}
+            swapPosition={swapLineupPositions}
+            positionPlayer={true}
           />
         </div>
       ))}
     </div>
   );
-};
+});
 
 export default Lineup;

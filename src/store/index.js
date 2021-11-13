@@ -3,19 +3,41 @@ import { createStore } from "redux";
 const defaultState = {
   modalState: false,
   selectedPlayer: "",
+  selectedPlayerOnTeam: "",
+  unselectPlayerInRotation: "",
   lineup: [...Array(9)],
   rotation: [...Array(5)],
   bullpen: [...Array(6)],
   bench: [...Array(5)],
+  counter: 0,
 };
 
 const counterReducer = (state = defaultState, action) => {
+  if (action.type === "increase") {
+    let newCount = state.counter;
+    newCount++;
+    return {
+      ...state,
+      counter: newCount,
+    };
+  }
   if (action.type === "selectedPlayer") {
     return {
       ...state,
       selectedPlayer: action.selectedPlayer,
     };
   }
+  if (action.type === "selectedPlayerOnTeam") {
+    return {
+      ...state,
+      selectedPlayerOnTeam: {
+        player: action.player,
+        position: action.position,
+        positionPlayer: action.positionPlayer,
+      },
+    };
+  }
+
   if (action.type === "closeModal") {
     return {
       ...state,
@@ -34,12 +56,39 @@ const counterReducer = (state = defaultState, action) => {
       selectedPlayer: "",
     };
   }
+  if (action.type === "unselectPlayerOnTeam") {
+    return {
+      ...state,
+      selectedPlayerOnTeam: "",
+    };
+  }
+
+  if (action.type === "swapPlayersInLineup") {
+    const lineup = state.lineup;
+    lineup[state.selectedPlayerOnTeam.position] = action.player;
+    lineup[action.position] = state.selectedPlayerOnTeam.player;
+
+    return {
+      ...state,
+      lineup: [...lineup],
+    };
+  }
+  if (action.type === "swapPlayersInRotation") {
+    const rotation = state.rotation;
+    rotation[state.selectedPlayerOnTeam.position] = action.player;
+    rotation[action.position] = state.selectedPlayerOnTeam.player;
+
+    return {
+      ...state,
+      rotation: [...rotation],
+    };
+  }
   if (action.type === "addPlayerToLineup") {
     const lineup = state.lineup;
     lineup[action.index] = action.player;
     return {
       ...state,
-      lineup: lineup,
+      lineup: [...lineup],
     };
   }
   if (action.type === "addPlayerToRotation") {
@@ -47,7 +96,7 @@ const counterReducer = (state = defaultState, action) => {
     rotation[action.index] = action.player;
     return {
       ...state,
-      rotation: rotation,
+      rotation: [...rotation],
     };
   }
   if (action.type === "addPlayerToBullpen") {
@@ -55,7 +104,7 @@ const counterReducer = (state = defaultState, action) => {
     bullpen[action.index] = action.player;
     return {
       ...state,
-      bullpen: bullpen,
+      bullpen: [...bullpen],
     };
   }
   if (action.type === "addPlayerToBench") {
@@ -63,7 +112,7 @@ const counterReducer = (state = defaultState, action) => {
     bench[action.index] = action.player;
     return {
       ...state,
-      bench: bench,
+      bench: [...bench],
     };
   }
   if (action.type === "resetLineup") {

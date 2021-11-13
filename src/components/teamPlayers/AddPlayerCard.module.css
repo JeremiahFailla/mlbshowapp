@@ -14,12 +14,18 @@
 }
 
 .occupiedPlayerSpot {
-  background: rgba(255, 166, 0, 0.472);
   padding: 1rem;
-  color: orange;
   width: 350px;
   text-align: center;
   margin: 0.5rem;
   border-radius: 5000px;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background: rgba(255, 166, 0, 0.911);
+  color: white;
+}
+
+.selected {
+  color: white;
+  background: rgba(255, 166, 0, 0.472);
 }

@@ -4,21 +4,64 @@ import classes from "./Rotation.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import ResetBtn from "./ResetBtn";
 
-const Rotation = () => {
+const Rotation = React.memo(() => {
   const dispatch = useDispatch();
   const startingRotation = useSelector((state) => state.rotation);
-  const [player, setPlayer] = useState(startingRotation);
+  const bullpen = useSelector((state) => state.bullpen);
 
   useEffect(() => {
-    setPlayer(startingRotation);
+    console.log("Rotation Component Rerendered");
   }, [startingRotation]);
 
+  useEffect(() => {
+    return () => {
+      dispatch({ type: "unselectPlayerOnTeam" });
+    };
+  }, []);
+
   const addPlayerToRotation = (i, player) => {
+    let invalid = startingRotation.some((pl) => {
+      if (pl === undefined) return;
+      return pl.id === player.id;
+    });
+    if (!invalid) {
+      invalid = bullpen.some((pl) => {
+        if (pl === undefined) return;
+        return pl.id === player.id;
+      });
+    }
+
+    if (invalid) {
+      console.log("Player is all ready rotation or in bullpen");
+      return;
+    }
+
     dispatch({ type: "addPlayerToRotation", index: i, player: player });
+    dispatch({ type: "unselectPlayerOnTeam" });
   };
 
   const onResetRotationHandler = () => {
     dispatch({ type: "resetRotation" });
+    dispatch({ type: "unselectPlayerOnTeam" });
+  };
+
+  const onSelectPlayerInRotation = (player, id, positionPlayer) => {
+    dispatch({
+      type: "selectedPlayerOnTeam",
+      player: player,
+      position: id,
+      positionPlayer: positionPlayer,
+    });
+  };
+
+  const swapRotationPositions = (player, position) => {
+    console.log("Swap Rotation Positions");
+    dispatch({
+      type: "swapPlayersInRotation",
+      player: player,
+      position: position,
+    });
+    dispatch({ type: "unselectPlayerOnTeam" });
   };
 
   return (
@@ -28,19 +71,22 @@ const Rotation = () => {
         <ResetBtn resetFunc={onResetRotationHandler}>Reset Rotation</ResetBtn>
       </div>
 
-      {player.map((el, i) => (
+      {startingRotation.map((el, i) => (
         <div className="flex-c">
           <span>{i + 1}. </span>
           <AddPlayerCard
             key={i}
             lineupPosition={i}
             addPlayer={addPlayerToRotation}
-            players={el}
+            player={el}
+            selectPlayerFunc={onSelectPlayerInRotation}
+            swapPosition={swapRotationPositions}
+            positionPlayer={false}
           />
         </div>
       ))}
     </div>
   );
-};
+});
 
 export default Rotation;

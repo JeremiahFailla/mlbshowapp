@@ -1,0 +1,32 @@
+.averagesContainer {
+  align-items: center;
+}
+
+.title {
+  margin: 0.5rem;
+  color: orange;
+  font-size: 1.2rem;
+}
+
+.wording,
+.stat {
+  padding: 0.5rem;
+}
+
+.stat {
+  color: orange;
+}
+
+.btn {
+  width: 200px;
+  border: 1px solid orange;
+  border-radius: 2000px;
+  color: orange;
+  background: transparent;
+  padding: 0.3rem;
+  margin: 0.5rem;
+}
+
+.contentContainer {
+  margin: 0.5rem;
+}

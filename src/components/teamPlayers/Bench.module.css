@@ -2,8 +2,29 @@
   color: orange;
   font-size: 1.5rem;
   border-bottom: 3px solid orange;
+  text-align: center;
 }
 
 span {
   color: #fff;
+}
+
+.titleContainer {
+  margin: 20px 0 10px;
+  justify-content: space-around;
+}
+
+.animation {
+  animation-name: moveDown;
+  animation-duration: 1s;
+  text-align: center;
+}
+
+@keyframes moveDown {
+  from {
+    margin-top: -20px;
+  }
+  to {
+    margin-top: 0;
+  }
 }

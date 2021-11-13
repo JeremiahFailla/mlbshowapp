@@ -5,6 +5,7 @@ import Rotation from "./Rotation";
 import Bench from "./Bench";
 import Bullpen from "./Bullpen";
 import { useSelector, useDispatch } from "react-redux";
+import TeamAverages from "../teamAverages/TeamAverages";
 
 const BuildTeamPlayers = () => {
   const [showLineup, setShowLineup] = useState(true);
@@ -31,6 +32,7 @@ const BuildTeamPlayers = () => {
 
   return (
     <div className={classes.container}>
+      <TeamAverages />
       <div className={classes.btnContainer}>
         <div className={classes.positionPlayersBtnCont}>
           <button

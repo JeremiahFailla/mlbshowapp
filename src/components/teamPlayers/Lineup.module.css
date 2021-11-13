@@ -14,20 +14,6 @@ span {
   color: #fff;
 }
 
-.resetBtn {
-  border: 1px solid orange;
-  color: orange;
-  background: transparent;
-  border-radius: 20000px;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.resetBtn:hover {
-  background: rgba(255, 166, 0, 0.363);
-}
-
 .animation {
   animation-name: moveDown;
   animation-duration: 1s;
