@@ -82,6 +82,7 @@ const Rotation = React.memo(() => {
             selectPlayerFunc={onSelectPlayerInRotation}
             swapPosition={swapRotationPositions}
             positionPlayer={false}
+            positionAllowed="sp"
           />
         </div>
       ))}

@@ -19,7 +19,7 @@ const Lineup = React.memo(() => {
     };
   }, []);
 
-  const addPlayerToLineup = (i, player) => {
+  const addPlayerToLineup = (i, player, showErrorFunc) => {
     // check to see if player is already in either lineup or on bench
     let invalid = startingLineup.some((pl) => {
       if (pl === undefined) return;
@@ -33,7 +33,8 @@ const Lineup = React.memo(() => {
     }
 
     if (invalid) {
-      console.log("Player is all ready lineup or on bench");
+      showErrorFunc("Player is all ready lineup or on bench");
+      // console.log("Player is all ready lineup or on bench");
       return;
     }
     dispatch({ type: "addPlayerToLineup", index: i, player: player });
@@ -82,6 +83,7 @@ const Lineup = React.memo(() => {
             selectPlayerFunc={onSelectPlayerOnTeam}
             swapPosition={swapLineupPositions}
             positionPlayer={true}
+            positionAllowed="c,1b,2b,3b,ss,lf,cf,rf"
           />
         </div>
       ))}
