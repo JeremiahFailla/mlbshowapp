@@ -10,6 +10,7 @@ const defaultState = {
   bullpen: [...Array(6)],
   bench: [...Array(5)],
   counter: 0,
+  players: [],
 };
 
 const counterReducer = (state = defaultState, action) => {
@@ -160,6 +161,12 @@ const counterReducer = (state = defaultState, action) => {
     return {
       ...state,
       bench: [...Array(5)],
+    };
+  }
+  if (action.type === "insertFirebasePlayers") {
+    return {
+      ...state,
+      players: [...action.players],
     };
   }
   return state;

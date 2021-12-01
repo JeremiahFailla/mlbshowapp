@@ -50,84 +50,151 @@ const names = [
 ];
 
 const SearchPlayer = () => {
-  const [players, setPlayers] = useState([]);
+  const [searchedPlayers, setSearchedPlayers] = useState([]);
+  const players = useSelector((state) => state.players);
 
-  const getData = async (player) => {
-    if (true) return;
+  useEffect(() => {
+    console.log(players);
+  }, []);
+
+  // const getData = async (player) => {
+  //   if (true) return;
+  //   const playersList = [];
+  //   console.log(player);
+
+  //   const playersRef = collection(db, "players");
+  //   // Create a query against the collection.
+  //   // let q = query(playersRef, where("name", ">=", player.name));
+  //   let q;
+  //   if (
+  //     player.league !== "Both" &&
+  //     player.division !== "All" &&
+  //     player.team !== "All"
+  //   ) {
+  //     console.log("Query 1");
+  //     q = query(
+  //       playersRef,
+  //       where(
+  //         "nameContains",
+  //         "array-contains",
+  //         player.name.toLowerCase().trim()
+  //       ),
+  //       where("league", "==", player.league),
+  //       where("division", "==", player.division),
+  //       where("team", "==", player.team)
+  //     );
+  //   } else if (
+  //     player.league !== "Both" &&
+  //     player.division !== "All" &&
+  //     player.team === "All"
+  //   ) {
+  //     console.log("Query 2");
+  //     q = query(
+  //       playersRef,
+  //       where(
+  //         "nameContains",
+  //         "array-contains",
+  //         player.name.toLowerCase().trim()
+  //       ),
+  //       where("league", "==", player.league),
+  //       where("division", "==", player.division)
+  //     );
+  //   } else if (
+  //     player.league !== "Both" &&
+  //     player.division === "All" &&
+  //     player.team === "All"
+  //   ) {
+  //     console.log("Query 3");
+  //     q = query(
+  //       playersRef,
+  //       where(
+  //         "nameContains",
+  //         "array-contains",
+  //         player.name.toLowerCase().trim()
+  //       ),
+  //       where("league", "==", player.league)
+  //     );
+  //   } else if (player.league === "Both") {
+  //     console.log("Query 4");
+  //     q = query(
+  //       playersRef,
+  //       where(
+  //         "nameContains",
+  //         "array-contains",
+  //         player.name.toLowerCase().trim()
+  //       )
+  //     );
+  //   }
+
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach((doc) => {
+  //     // doc.data() is never undefined for query doc snapshots
+  //     console.log(doc.id, " => ", doc.data());
+  //     playersList.push(doc.data());
+  //   });
+  //   setPlayers([...playersList]);
+  // };
+
+  const getData = (player) => {
+    // if (true) return;
     const playersList = [];
     console.log(player);
 
-    const playersRef = collection(db, "players");
-    // Create a query against the collection.
-    // let q = query(playersRef, where("name", ">=", player.name));
-    let q;
     if (
       player.league !== "Both" &&
       player.division !== "All" &&
       player.team !== "All"
     ) {
       console.log("Query 1");
-      q = query(
-        playersRef,
-        where(
-          "nameContains",
-          "array-contains",
-          player.name.toLowerCase().trim()
-        ),
-        where("league", "==", player.league),
-        where("division", "==", player.division),
-        where("team", "==", player.team)
-      );
+      players.forEach((pl) => {
+        if (
+          pl.league === player.league &&
+          pl.division === player.division &&
+          pl.team === player.team &&
+          pl.name.toLowerCase().includes(player.name.toLowerCase().trim())
+        ) {
+          playersList.push(pl);
+        }
+      });
     } else if (
       player.league !== "Both" &&
       player.division !== "All" &&
       player.team === "All"
     ) {
       console.log("Query 2");
-      q = query(
-        playersRef,
-        where(
-          "nameContains",
-          "array-contains",
-          player.name.toLowerCase().trim()
-        ),
-        where("league", "==", player.league),
-        where("division", "==", player.division)
-      );
+      players.forEach((pl) => {
+        if (
+          pl.league === player.league &&
+          pl.division === player.division &&
+          pl.name.toLowerCase().includes(player.name.toLowerCase().trim())
+        ) {
+          playersList.push(pl);
+        }
+      });
     } else if (
       player.league !== "Both" &&
       player.division === "All" &&
       player.team === "All"
     ) {
       console.log("Query 3");
-      q = query(
-        playersRef,
-        where(
-          "nameContains",
-          "array-contains",
-          player.name.toLowerCase().trim()
-        ),
-        where("league", "==", player.league)
-      );
+      players.forEach((pl) => {
+        if (
+          pl.league === player.league &&
+          pl.name.toLowerCase().includes(player.name.toLowerCase().trim())
+        ) {
+          playersList.push(pl);
+        }
+      });
     } else if (player.league === "Both") {
       console.log("Query 4");
-      q = query(
-        playersRef,
-        where(
-          "nameContains",
-          "array-contains",
-          player.name.toLowerCase().trim()
-        )
-      );
+      players.forEach((pl) => {
+        if (pl.name.toLowerCase().includes(player.name.toLowerCase().trim())) {
+          playersList.push(pl);
+        }
+      });
     }
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-      playersList.push(doc.data());
-    });
-    setPlayers([...playersList]);
+    console.log(playersList);
+    setSearchedPlayers([...playersList]);
   };
 
   return (
@@ -142,7 +209,7 @@ const SearchPlayer = () => {
         <div className={classes.description}>
           <p>Use this tool to search for any player on an active MLB roster</p>
         </div>
-        <PlayersList players={names} type="click" />
+        <PlayersList players={searchedPlayers} type="click" />
 
         <Features page="search" />
         <Footer />
