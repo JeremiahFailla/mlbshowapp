@@ -16,6 +16,7 @@ const DisplayStats = ({ player }) => {
         <div className={classes.nameArea}>
           <span>{player.name}</span>
           <span># {player.number}</span>
+          <span>Team: {player.team}</span>
           <span>Position: {player.position}</span>
           <span>Overall: {player.overall}</span>
         </div>

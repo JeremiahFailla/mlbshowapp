@@ -2,8 +2,38 @@
   color: orange;
   font-size: 1.5rem;
   border-bottom: 3px solid orange;
+  text-align: center;
+}
+
+.titleContainer {
+  margin: 20px 0 10px;
+  justify-content: space-around;
 }
 
 span {
   color: #fff;
+}
+
+.resetBtn {
+  border: 1px solid orange;
+  color: orange;
+  background: transparent;
+  border-radius: 20000px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.animation {
+  animation-name: moveDown;
+  animation-duration: 1s;
+}
+
+@keyframes moveDown {
+  from {
+    margin-top: -20px;
+  }
+  to {
+    margin-top: 0;
+  }
 }

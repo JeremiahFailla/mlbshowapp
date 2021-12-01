@@ -83,6 +83,29 @@ const counterReducer = (state = defaultState, action) => {
       rotation: [...rotation],
     };
   }
+
+  if (action.type === "swapPlayersOnBench") {
+    const bench = state.bench;
+    bench[state.selectedPlayerOnTeam.position] = action.player;
+    bench[action.position] = state.selectedPlayerOnTeam.player;
+
+    return {
+      ...state,
+      bench: [...bench],
+    };
+  }
+
+  if (action.type === "swapPlayersInBullpen") {
+    const bullpen = state.bullpen;
+    bullpen[state.selectedPlayerOnTeam.position] = action.player;
+    bullpen[action.position] = state.selectedPlayerOnTeam.player;
+
+    return {
+      ...state,
+      bullpen: [...bullpen],
+    };
+  }
+
   if (action.type === "addPlayerToLineup") {
     const lineup = state.lineup;
     lineup[action.index] = action.player;

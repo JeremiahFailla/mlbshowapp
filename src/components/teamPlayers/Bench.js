@@ -1,19 +1,69 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AddPlayerCard from "./AddPlayerCard";
 import classes from "./Bench.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import ResetBtn from "./ResetBtn";
 
-const Bench = () => {
+const Bench = React.memo(() => {
+  const startingLineup = useSelector((state) => state.lineup);
   const startingBench = useSelector((state) => state.bench);
   const dispatch = useDispatch();
 
-  const addPlayerToBench = (i, player) => {
+  useEffect(() => {
+    console.log("Bench has changed");
+  }, [startingBench]);
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: "unselectPlayerOnTeam" });
+    };
+  }, []);
+
+  const addPlayerToBench = (i, player, showErrorFunc) => {
+    // check to see if player is already in either lineup or on bench
+    let invalid = startingLineup.some((pl) => {
+      if (pl === undefined) return;
+      return pl.id === player.id;
+    });
+    if (!invalid) {
+      invalid = startingBench.some((pl) => {
+        if (pl === undefined) return;
+        return pl.id === player.id;
+      });
+    }
+
+    if (invalid) {
+      showErrorFunc("Player is all ready lineup or on bench");
+      return;
+    }
     dispatch({ type: "addPlayerToBench", index: i, player: player });
+    dispatch({ type: "unselectPlayerOnTeam" });
   };
+
   const onResetBenchHandler = () => {
     dispatch({ type: "resetBench" });
+    dispatch({ type: "unselectPlayerOnTeam" });
   };
+
+  const onSelectPlayerOnTeam = (player, id, positionPlayer) => {
+    dispatch({
+      type: "selectedPlayerOnTeam",
+      player: player,
+      position: id,
+      positionPlayer: positionPlayer,
+    });
+  };
+
+  const swapBenchPositions = (player, position) => {
+    console.log("Swap Bench Postions");
+    dispatch({
+      type: "swapPlayersOnBench",
+      player: player,
+      position: position,
+    });
+    dispatch({ type: "unselectPlayerOnTeam" });
+  };
+
   return (
     <div className={classes.animation}>
       <div className={`flex-c ${classes.titleContainer}`}>
@@ -28,11 +78,15 @@ const Bench = () => {
             lineupPosition={i}
             addPlayer={addPlayerToBench}
             player={el}
+            selectPlayerFunc={onSelectPlayerOnTeam}
+            swapPosition={swapBenchPositions}
+            positionPlayer={true}
+            positionAllowed="c,1b,2b,3b,ss,lf,cf,rf"
           />
         </div>
       ))}
     </div>
   );
-};
+});
 
 export default Bench;

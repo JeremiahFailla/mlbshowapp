@@ -11,9 +11,9 @@
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  border-radius: 2000px;
-  background: rgba(255, 255, 255, 0.527);
-  color: orange;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  color: rgb(5, 5, 5);
   transition: all 0.3s ease-in-out;
 }
 
@@ -21,6 +21,7 @@
 .grid .playerCard:visited {
   background: black;
   cursor: pointer;
+  color: orange;
 }
 
 .playerCard div {
@@ -31,4 +32,18 @@
   border-radius: 50%;
   padding: 5px;
   text-align: center;
+}
+
+.noContent {
+  padding: 2rem;
+  color: #000;
+  font-weight: 800;
+}
+
+.contentContainer {
+  margin: 1rem;
+  padding: 0.5rem 0;
+  background-color: rgba(255, 255, 255, 0.267);
+  box-shadow: 0 0 30px orange;
+  border-radius: 10px;
 }

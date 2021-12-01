@@ -15,46 +15,125 @@ import PlayersList from "../components/PlayersList";
 import SearchBar from "../components/searchBar/SearchBar";
 import Footer from "../components/layout/Footer";
 
-// const getData = async () => {
-//   // const q = query(
-//   //   collection(db, "players"),
-//   //   where("name", "==", "Austin Hays")
-//   // );
-//   const citiesRef = collection(db, "players");
-//   // Create a query against the collection.
-//   let q = query(citiesRef, where("name", "==", "james"));
-//   // q = query(citiesRef, where("name", "==", "Austin Hays"));
+// const q = query(
+//   collection(db, "players"),
+//   where("name", "==", "Austin Hays")
+// );
+// q = query(citiesRef, where("name", "==", "Austin Hays"));
 
-//   const querySnapshot = await getDocs(q);
-//   querySnapshot.forEach((doc) => {
-//     // doc.data() is never undefined for query doc snapshots
-//     console.log(doc.id, " => ", doc.data());
-//   });
-// };
+const names = [
+  {
+    id: 0,
+    team: "Orioles",
+    name: "Austin Hays",
+    number: 21,
+    position: "LF",
+    overall: 81,
+    bats: "R",
+    throws: "R",
+    secondary: "CF, RF",
+    weight: 210,
+    height: "6'",
+    age: 26,
+    born: "7/5/95",
+    conR: 75,
+    conL: 75,
+    pwrR: 81,
+    pwrL: 90,
+    vis: 60,
+    disc: 52,
+    clu: 80,
+    spd: 79,
+    stl: 65,
+    brAgg: 85,
+  },
+];
 
 const SearchPlayer = () => {
-  const playersFound = useState(false);
+  const [players, setPlayers] = useState([]);
 
-  // const dispatch = useDispatch();
+  const getData = async (player) => {
+    if (true) return;
+    const playersList = [];
+    console.log(player);
 
-  // const addPlayer = (selectedPlayer) => {
-  //   dispatch({ type: "add", player: selectedPlayer });
-  // };
+    const playersRef = collection(db, "players");
+    // Create a query against the collection.
+    // let q = query(playersRef, where("name", ">=", player.name));
+    let q;
+    if (
+      player.league !== "Both" &&
+      player.division !== "All" &&
+      player.team !== "All"
+    ) {
+      console.log("Query 1");
+      q = query(
+        playersRef,
+        where(
+          "nameContains",
+          "array-contains",
+          player.name.toLowerCase().trim()
+        ),
+        where("league", "==", player.league),
+        where("division", "==", player.division),
+        where("team", "==", player.team)
+      );
+    } else if (
+      player.league !== "Both" &&
+      player.division !== "All" &&
+      player.team === "All"
+    ) {
+      console.log("Query 2");
+      q = query(
+        playersRef,
+        where(
+          "nameContains",
+          "array-contains",
+          player.name.toLowerCase().trim()
+        ),
+        where("league", "==", player.league),
+        where("division", "==", player.division)
+      );
+    } else if (
+      player.league !== "Both" &&
+      player.division === "All" &&
+      player.team === "All"
+    ) {
+      console.log("Query 3");
+      q = query(
+        playersRef,
+        where(
+          "nameContains",
+          "array-contains",
+          player.name.toLowerCase().trim()
+        ),
+        where("league", "==", player.league)
+      );
+    } else if (player.league === "Both") {
+      console.log("Query 4");
+      q = query(
+        playersRef,
+        where(
+          "nameContains",
+          "array-contains",
+          player.name.toLowerCase().trim()
+        )
+      );
+    }
 
-  // useEffect(() => {
-  //   // onSnapshot(collection(db, "players"), (snapshot) => {
-  //   //   console.log(snapshot.docs.map((doc) => doc.data()));
-  //   // });
-  //   // const citiesRef = collection(db, "players");
-  //   // // Create a query against the collection.
-  //   // const q = query(citiesRef, where("name", "==", "Austin Hays"));
-  //   // console.log(q);
-  //   // getData();
-  // }, []);
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+      playersList.push(doc.data());
+    });
+    setPlayers([...playersList]);
+  };
+
   return (
     <React.Fragment>
       <Card>
-        <SearchBar />
+        <SearchBar searchFunc={getData} />
       </Card>
       <div className={classes.body}>
         <div className={classes.title}>
@@ -63,35 +142,7 @@ const SearchPlayer = () => {
         <div className={classes.description}>
           <p>Use this tool to search for any player on an active MLB roster</p>
         </div>
-        <PlayersList
-          players={[
-            {
-              id: 0,
-              name: "Austin Hays",
-              number: 21,
-              position: "LF",
-              overall: 81,
-              bats: "R",
-              throws: "R",
-              secondary: "CF, RF",
-              weight: 210,
-              height: "6'",
-              age: 26,
-              born: "7/5/95",
-              conR: 75,
-              conL: 75,
-              pwrR: 81,
-              pwrL: 90,
-              vis: 60,
-              disc: 52,
-              clu: 80,
-              spd: 79,
-              stl: 65,
-              brAgg: 85,
-            },
-          ]}
-          type="click"
-        />
+        <PlayersList players={names} type="click" />
 
         <Features page="search" />
         <Footer />

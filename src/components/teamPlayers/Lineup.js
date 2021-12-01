@@ -34,7 +34,6 @@ const Lineup = React.memo(() => {
 
     if (invalid) {
       showErrorFunc("Player is all ready lineup or on bench");
-      // console.log("Player is all ready lineup or on bench");
       return;
     }
     dispatch({ type: "addPlayerToLineup", index: i, player: player });

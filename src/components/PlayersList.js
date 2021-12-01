@@ -61,7 +61,17 @@ const PlayersList = (props) => {
       </div>
     );
   }
-  return content;
+  return (
+    <div className={classes.contentContainer}>
+      {props.players.length > 0 ? (
+        content
+      ) : (
+        <div className={`flex-c`}>
+          <p className={classes.noContent}>Search For Players To Select From</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default PlayersList;
