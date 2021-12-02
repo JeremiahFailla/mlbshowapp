@@ -1,18 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PlayerStatsModal from "../modals/PlayerStatsModal";
 import classes from "./DisplayStats.module.css";
 import { useDispatch } from "react-redux";
 import { FaRegWindowClose } from "react-icons/fa";
+import PositionPlayerStats from "./PositionPlayerStats";
+import PitcherPlayerStats from "./PitcherPlayerStats";
 
 const DisplayStats = ({ player }) => {
+  const [toggle, setToggle] = useState(
+    player.position.includes("SP") || player.position.includes("RP")
+      ? false
+      : true
+  );
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch({ type: "closeModal" });
   };
+
+  const onToggleStatsHandler = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <PlayerStatsModal>
       <div className={`flex-col ${classes.playerStats}`}>
+        <div className={`flex-c`}>
+          {player.position.includes("SP") &&
+            player.position.includes("RP")(
+              <button
+                type="button"
+                className={classes.toggleBtn}
+                onClick={onToggleStatsHandler}
+              >
+                {toggle ? "Show Pitching Stats" : "Show Batting Stats"}
+              </button>
+            )}
+
+          <button type="button" onClick={closeModal} className={classes.btn}>
+            <FaRegWindowClose className={classes.btnIcon} />
+          </button>
+        </div>
         <div className={classes.nameArea}>
           <span>{player.name}</span>
           <span># {player.number}</span>
@@ -20,10 +48,8 @@ const DisplayStats = ({ player }) => {
           <span>Position: {player.position}</span>
           <span>Overall: {player.overall}</span>
         </div>
-        <button type="button" onClick={closeModal} className={classes.btn}>
-          <FaRegWindowClose className={classes.btnIcon} />
-        </button>
-        <table className={classes.personal}>
+
+        <table>
           <tbody>
             <tr>
               <th>Bats</th>
@@ -45,28 +71,8 @@ const DisplayStats = ({ player }) => {
             </tr>
           </tbody>
         </table>
-        <table>
-          <tbody>
-            <tr>
-              <th className={classes.batting}>CON R</th>
-              <th className={classes.batting}>CON L</th>
-              <th className={classes.batting}>PWR R</th>
-              <th className={classes.batting}>PWR R</th>
-              <th className={classes.batting}>VIS</th>
-              <th className={classes.batting}>DISC</th>
-              <th className={classes.batting}>CLU</th>
-            </tr>
-            <tr>
-              <td>{player.conR}</td>
-              <td>{player.conL}</td>
-              <td>{player.pwrR}</td>
-              <td>{player.pwrL}</td>
-              <td>{player.vis}</td>
-              <td>{player.disc}</td>
-              <td>{player.clu}</td>
-            </tr>
-          </tbody>
-        </table>
+        {toggle && <PositionPlayerStats player={player} />}
+        {!toggle && <PitcherPlayerStats player={player} />}
         <table>
           <tbody>
             <tr>

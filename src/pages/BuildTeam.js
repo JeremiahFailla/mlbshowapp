@@ -135,7 +135,7 @@ const BuildTeam = () => {
   return (
     <React.Fragment>
       <Card>
-        <SearchBar />
+        <SearchBar searchFunc={getData} />
       </Card>
       <div className={classes.body}>
         <div className={classes.title}>

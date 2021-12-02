@@ -31,8 +31,12 @@ table {
   color: green;
 }
 
+.pitching {
+  color: orange;
+}
+
 .batting {
-  color: rgb(255, 123, 0);
+  color: rgb(251, 193, 0);
 }
 
 .btn {
@@ -50,5 +54,27 @@ table {
 }
 
 .btnIcon:hover {
+  color: orange;
+}
+
+.active {
+  border: 1px solid orange;
+  color: orange;
+}
+
+.inactive {
+  color: black !important;
+  border: 1px solid transparent !important;
+}
+
+.toggleBtn {
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  background: transparent;
+  outline: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid orange;
   color: orange;
 }

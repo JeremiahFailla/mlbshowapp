@@ -209,7 +209,7 @@ const SearchPlayer = () => {
         <div className={classes.description}>
           <p>Use this tool to search for any player on an active MLB roster</p>
         </div>
-        <PlayersList players={searchedPlayers} type="click" />
+        <PlayersList players={names} type="click" />
 
         <Features page="search" />
         <Footer />
