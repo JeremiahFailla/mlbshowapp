@@ -25,18 +25,29 @@ table {
 
 .running {
   color: rgb(0, 132, 255);
+  width: calc(100% / 3);
 }
 
 .fielding {
   color: green;
+  width: calc(100% / 4);
 }
 
 .pitching {
   color: orange;
 }
 
+.pitching1 {
+  width: calc(100% / 5);
+}
+
+.pitching2 {
+  width: calc(100% / 4);
+}
+
 .batting {
   color: rgb(251, 193, 0);
+  width: calc(100% / 7);
 }
 
 .btn {
@@ -72,9 +83,19 @@ table {
   margin-bottom: 0.5rem;
   background: transparent;
   outline: 0;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid orange;
+  border: 1px solid black;
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.toggleBtn:hover {
+  border-color: orange;
   color: orange;
+}
+
+table {
+  table-layout: fixed;
 }

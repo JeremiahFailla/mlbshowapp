@@ -1,0 +1,43 @@
+.stat {
+  padding: 0.2rem 1rem;
+  color: orange;
+  display: inline-block;
+  text-align: center;
+}
+
+.statsContainer {
+  padding: 0.5rem 0;
+}
+
+.statBar {
+  display: inline-block;
+  background: red;
+  height: 15px;
+
+  margin-bottom: -2px;
+}
+
+.statContainer {
+  display: flex;
+  align-items: flex-end;
+}
+
+.left {
+  text-align: right;
+}
+
+.batting {
+  color: rgb(251, 193, 0);
+}
+
+.running {
+  color: rgb(0, 132, 255);
+}
+
+.fielding {
+  color: green;
+}
+
+.pitching {
+  color: orange;
+}

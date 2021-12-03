@@ -20,16 +20,16 @@ import { useSelector, useDispatch } from "react-redux";
 function App() {
   const dispatch = useDispatch();
 
-  const getData = async () => {
-    const players = [];
-    const querySnapshot = await getDocs(collection(db, "players"));
-    querySnapshot.forEach((player) => {
-      // doc.data() is never undefined for query doc snapshots
-      // console.log(player.id, " => ", player.data());
-      players.push(player.data());
-    });
-    dispatch({ type: "insertFirebasePlayers", players: players });
-  };
+  // const getData = async () => {
+  //   const players = [];
+  //   const querySnapshot = await getDocs(collection(db, "players"));
+  //   querySnapshot.forEach((player) => {
+  //     // doc.data() is never undefined for query doc snapshots
+  //     // console.log(player.id, " => ", player.data());
+  //     players.push(player.data());
+  //   });
+  //   dispatch({ type: "insertFirebasePlayers", players: players });
+  // };
 
   useEffect(() => {
     // getData();

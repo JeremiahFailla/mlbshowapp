@@ -26,16 +26,17 @@ const DisplayStats = ({ player }) => {
     <PlayerStatsModal>
       <div className={`flex-col ${classes.playerStats}`}>
         <div className={`flex-c`}>
-          {player.position.includes("SP") &&
-            player.position.includes("RP")(
-              <button
-                type="button"
-                className={classes.toggleBtn}
-                onClick={onToggleStatsHandler}
-              >
-                {toggle ? "Show Pitching Stats" : "Show Batting Stats"}
-              </button>
-            )}
+          {player.position.includes("SP") || player.position.includes("RP") ? (
+            <button
+              type="button"
+              className={classes.toggleBtn}
+              onClick={onToggleStatsHandler}
+            >
+              {toggle ? "Show Pitching Stats" : "Show Batting Stats"}
+            </button>
+          ) : (
+            ""
+          )}
 
           <button type="button" onClick={closeModal} className={classes.btn}>
             <FaRegWindowClose className={classes.btnIcon} />

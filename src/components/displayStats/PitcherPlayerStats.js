@@ -7,11 +7,11 @@ const PitcherPlayerStats = ({ player }) => {
       <table>
         <tbody>
           <tr>
-            <th className={classes.pitching}>STA</th>
-            <th className={classes.pitching}>H/9</th>
-            <th className={classes.pitching}>K/9</th>
-            <th className={classes.pitching}>BB/9</th>
-            <th className={classes.pitching}>HR/9</th>
+            <th className={`${classes.pitching} ${classes.pitching1}`}>STA</th>
+            <th className={`${classes.pitching} ${classes.pitching1}`}>H/9</th>
+            <th className={`${classes.pitching} ${classes.pitching1}`}>K/9</th>
+            <th className={`${classes.pitching} ${classes.pitching1}`}>BB/9</th>
+            <th className={`${classes.pitching} ${classes.pitching1}`}>HR/9</th>
           </tr>
           <tr>
             <td>{player.sta}</td>
@@ -25,10 +25,10 @@ const PitcherPlayerStats = ({ player }) => {
       <table>
         <tbody>
           <tr>
-            <th className={classes.pitching}>CLU</th>
-            <th className={classes.pitching}>CTRL</th>
-            <th className={classes.pitching}>VEL</th>
-            <th className={classes.pitching}>BRK</th>
+            <th className={`${classes.pitching} ${classes.pitching2}`}>CLU</th>
+            <th className={`${classes.pitching} ${classes.pitching2}`}>CTRL</th>
+            <th className={`${classes.pitching} ${classes.pitching2}`}>VEL</th>
+            <th className={`${classes.pitching} ${classes.pitching2}`}>BRK</th>
           </tr>
           <tr>
             <td>{player.pClu}</td>

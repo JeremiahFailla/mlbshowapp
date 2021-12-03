@@ -21,10 +21,6 @@
   border-bottom: 2px solid black;
 }
 
-.title .brand {
-  color: orange;
-}
-
 .body .description {
   text-align: center;
   font-size: 1.1rem;

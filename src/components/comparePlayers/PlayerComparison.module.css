@@ -1,0 +1,73 @@
+.playerOne,
+.playerTwo,
+.stats {
+  background-color: transparent;
+  justify-content: center;
+  height: 100%;
+}
+
+.stats {
+  color: orange;
+  text-align: center;
+  border-right: 1px solid orange;
+  border-left: 1px solid orange;
+  padding: 0.5rem 0;
+}
+
+.toggleBtn {
+  width: 150px;
+  margin-bottom: 1rem;
+  color: orange;
+  background: transparent;
+  border: 1px solid orange;
+  border-radius: 1000px;
+  padding: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.toggleBtn:hover {
+  box-shadow: 0 0 10px orange;
+}
+
+.stats span {
+  padding: 0.2rem 1rem;
+}
+
+.playerContainer {
+  background: rgb(29, 29, 29);
+  padding: 1rem 0;
+  align-items: center;
+}
+
+.unoccupiedPlayerSpot {
+  background: rgb(63, 63, 63);
+  padding: 0.7rem;
+  width: 350px;
+  text-align: center;
+  margin: 0.7rem;
+  margin-top: 0;
+  border-radius: 5000px;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+.unoccupiedPlayerSpot:hover {
+  background: rgb(87, 87, 87);
+  cursor: pointer;
+}
+
+.batting {
+  color: rgb(251, 193, 0);
+}
+
+.running {
+  color: rgb(0, 132, 255);
+}
+
+.fielding {
+  color: green;
+}
+
+.pitching {
+  color: orange;
+}
