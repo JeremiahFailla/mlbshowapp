@@ -36,22 +36,24 @@ function App() {
   }, []);
 
   return (
-    <div className={classes.app}>
+    <div>
       <Layout>
-        <Switch>
-          <Route path="/" exact>
-            <Welcome />
-          </Route>
-          <Route path="/build-team">
-            <BuildTeam />
-          </Route>
-          <Route path="/compare-players">
-            <ComparePlayers />
-          </Route>
-          <Route path="/search-players">
-            <SearchPlayer />
-          </Route>
-        </Switch>
+        <div className={classes.app}>
+          <Switch>
+            <Route path="/" exact>
+              <Welcome />
+            </Route>
+            <Route path="/build-team">
+              <BuildTeam />
+            </Route>
+            <Route path="/compare-players">
+              <ComparePlayers />
+            </Route>
+            <Route path="/search-players">
+              <SearchPlayer />
+            </Route>
+          </Switch>
+        </div>
       </Layout>
     </div>
   );

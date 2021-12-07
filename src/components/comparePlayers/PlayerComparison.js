@@ -24,6 +24,14 @@ const PlayerComparison = () => {
     setToggle(!toggle);
   };
 
+  const onClearPlayerOneHandler = () => {
+    setPlayerOne("");
+  };
+
+  const onClearPlayerTwoHandler = () => {
+    setPlayerTwo("");
+  };
+
   let displayStatsContent;
 
   if (toggle) {
@@ -65,41 +73,57 @@ const PlayerComparison = () => {
       >
         {toggle ? "Show Pitching Stats" : "Show Batting Stats"}
       </button>
-      <div className="flex-c">
+      <div>
+        <button
+          type="button"
+          className={classes.clearPlayerBtn}
+          onClick={onClearPlayerOneHandler}
+        >
+          Clear Player One
+        </button>
+        <button
+          type="button"
+          className={classes.clearPlayerBtn}
+          onClick={onClearPlayerTwoHandler}
+        >
+          Clear Player Two
+        </button>
+      </div>
+      <div className="flex-c relative">
         <div className={`${classes.playerOne} flex-col`}>
-          <div className={classes.name}>
-            {!playerOne && (
-              <button
-                type="button"
-                className={classes.unoccupiedPlayerSpot}
-                onClick={onUnoccupiedSpotOneHandler}
-              >
-                <FaPlus className={classes.plus} />
-              </button>
-            )}
-            {playerOne && (
-              <Player player={playerOne} toggle={toggle} side="left" />
-            )}
-          </div>
+          {!playerOne && (
+            <button
+              type="button"
+              className={classes.unoccupiedPlayerSpot1}
+              onClick={onUnoccupiedSpotOneHandler}
+            >
+              <FaPlus className={classes.plus} />
+            </button>
+          )}
+          {playerOne && (
+            <Player player={playerOne} toggle={toggle} side="left" />
+          )}
         </div>
-        <div className={`${classes.stats} flex-col`}>
-          <span>Name</span>
-          <span>Overall</span>
-          {displayStatsContent}
-          <span className={classes.fielding}>Duration</span>
-          <span className={classes.fielding}>Fielding</span>
-          <span className={classes.fielding}>Arm Strength</span>
-          <span className={classes.fielding}>Arm Accuracy</span>
-          <span className={classes.fielding}>Reaction</span>
-          <span className={classes.running}>Speed</span>
-          <span className={classes.running}>Stealing</span>
-          <span className={classes.running}>Base Running</span>
+        <div className={`${classes.stats}`}>
+          <div className="flex-col">
+            <span>Name</span>
+            <span>Overall</span>
+            {displayStatsContent}
+            <span className={classes.fielding}>Duration</span>
+            <span className={classes.fielding}>Fielding</span>
+            <span className={classes.fielding}>Arm Strength</span>
+            <span className={classes.fielding}>Arm Accuracy</span>
+            <span className={classes.fielding}>Reaction</span>
+            <span className={classes.running}>Speed</span>
+            <span className={classes.running}>Stealing</span>
+            <span className={classes.running}>Base Running</span>
+          </div>
         </div>
         <div className={`${classes.playerTwo} flex-col`}>
           {!playerTwo && (
             <button
               type="button"
-              className={classes.unoccupiedPlayerSpot}
+              className={classes.unoccupiedPlayerSpot2}
               onClick={onUnoccupiedSpotTwoHandler}
             >
               <FaPlus className={classes.plus} />

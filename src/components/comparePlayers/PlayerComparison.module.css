@@ -29,6 +29,21 @@
   box-shadow: 0 0 10px orange;
 }
 
+.clearPlayerBtn {
+  margin: 0 4.5rem;
+  margin-bottom: 1rem;
+  color: orange;
+  background: transparent;
+  border: 1px solid orange;
+  border-radius: 1000px;
+  padding: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.clearPlayerBtn:hover {
+  box-shadow: 0 0 10px orange;
+}
+
 .stats span {
   padding: 0.2rem 1rem;
 }
@@ -39,19 +54,28 @@
   align-items: center;
 }
 
-.unoccupiedPlayerSpot {
+.unoccupiedPlayerSpot1 {
+  margin-right: 0.7rem;
+}
+
+.unoccupiedPlayerSpot2 {
+  margin-left: 0.7rem;
+}
+
+.unoccupiedPlayerSpot1,
+.unoccupiedPlayerSpot2 {
   background: rgb(63, 63, 63);
   padding: 0.7rem;
-  width: 350px;
+  width: 200px !important;
   text-align: center;
-  margin: 0.7rem;
   margin-top: 0;
   border-radius: 5000px;
   transition: all 0.2s ease-in-out;
   border: none;
 }
 
-.unoccupiedPlayerSpot:hover {
+.unoccupiedPlayerSpot1:hover,
+.unoccupiedPlayerSpot2:hover {
   background: rgb(87, 87, 87);
   cursor: pointer;
 }

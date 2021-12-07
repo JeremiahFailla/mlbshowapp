@@ -70,6 +70,8 @@ const names = [
     spd: 38,
     stl: 0,
     brAgg: 7,
+    btn: 71,
+    drgBtn: 62,
     sta: 83,
     hPerNine: 81,
     kPerNine: 56,

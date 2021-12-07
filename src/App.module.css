@@ -2,4 +2,5 @@
   max-width: 1200px;
   /* background: rgb(212, 212, 212); */
   margin: 0 auto;
+  position: relative;
 }
