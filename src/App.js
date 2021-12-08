@@ -7,14 +7,14 @@ import SearchPlayer from "./pages/SearchPlayer";
 import classes from "./App.module.css";
 import React, { useEffect } from "react";
 
-import {
-  onSnapshot,
-  collection,
-  query,
-  where,
-  getDocs,
-} from "@firebase/firestore";
-import db from "./firebase/firebase.config";
+// import {
+//   onSnapshot,
+//   collection,
+//   query,
+//   where,
+//   getDocs,
+// } from "@firebase/firestore";
+// import db from "./firebase/firebase.config";
 import { useSelector, useDispatch } from "react-redux";
 
 function App() {

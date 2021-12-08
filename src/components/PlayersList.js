@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import DisplayStats from "./displayStats/DisplayStats";
 import classes from "./styles/PlayersList.module.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ const PlayersList = (props) => {
   const [searchedPlayersObj, setSearchedPlayersObj] = useState({
     players: props.players,
     page: 0,
+    notFirstPage: 0,
   });
 
   const openModal = () => {
@@ -27,18 +28,28 @@ const PlayersList = (props) => {
 
   const onPrevBtnHandler = () => {
     if (searchedPlayersObj.page === 0) return;
+    const first = searchedPlayersObj.page - 1;
+    if (first === 0) {
+      setSearchedPlayersObj({
+        ...searchedPlayersObj,
+        notFirstPage: 0,
+        page: searchedPlayersObj.page - 1,
+      });
+      return;
+    }
     setSearchedPlayersObj({
       ...searchedPlayersObj,
+      notFirstPage: 1,
       page: searchedPlayersObj.page - 1,
     });
   };
 
   const onNextBtnHandler = () => {
-    const numPages = Math.floor(searchedPlayersObj.players.length / 9);
-    console.log(numPages);
-    if (searchedPlayersObj.page === numPages) return;
+    const numPages = Math.floor(searchedPlayersObj.players.length / 9) - 1;
+    if (searchedPlayersObj.page >= numPages) return;
     setSearchedPlayersObj({
       ...searchedPlayersObj,
+      notFirstPage: 1,
       page: searchedPlayersObj.page + 1,
     });
   };
@@ -50,8 +61,8 @@ const PlayersList = (props) => {
       <div className={classes.grid}>
         {searchedPlayersObj.players
           .slice(
-            0 + searchedPlayersObj.page * 9,
-            9 + searchedPlayersObj.page * 9
+            searchedPlayersObj.notFirstPage + searchedPlayersObj.page * 9,
+            searchedPlayersObj.notFirstPage + 9 + searchedPlayersObj.page * 9
           )
           .map((player) => (
             <div
@@ -65,9 +76,27 @@ const PlayersList = (props) => {
               <div>{player.name}</div>
             </div>
           ))}
-        <div className={classes.paginationContainer}>
-          <button type="button">next</button>
-        </div>
+        {searchedPlayersObj.players.length > 8 && (
+          <div className={classes.paginationContainer}>
+            <button
+              type="button"
+              className={classes.paginationBtn}
+              onClick={onPrevBtnHandler}
+            >
+              Prev
+            </button>
+            <span className={classes.pageNumber}>
+              {searchedPlayersObj.page + 1}
+            </span>
+            <button
+              type="button"
+              className={classes.paginationBtn}
+              onClick={onNextBtnHandler}
+            >
+              Next
+            </button>
+          </div>
+        )}
         {modalOpen && <DisplayStats player={selectedPlayer} />}
       </div>
     );
@@ -76,8 +105,8 @@ const PlayersList = (props) => {
       <div className={classes.grid}>
         {searchedPlayersObj.players
           .slice(
-            0 + searchedPlayersObj.page * 9,
-            9 + searchedPlayersObj.page * 9
+            searchedPlayersObj.notFirstPage + searchedPlayersObj.page * 9,
+            searchedPlayersObj.notFirstPage + 9 + searchedPlayersObj.page * 9
           )
           .map((player) => (
             <div
@@ -92,22 +121,27 @@ const PlayersList = (props) => {
               <div>{player.name}</div>
             </div>
           ))}
-        <div className={classes.paginationContainer}>
-          <button
-            type="button"
-            className={classes.paginationBtn}
-            onClick={onPrevBtnHandler}
-          >
-            Prev
-          </button>
-          <button
-            type="button"
-            className={classes.paginationBtn}
-            onClick={onNextBtnHandler}
-          >
-            Next
-          </button>
-        </div>
+        {searchedPlayersObj.players.length > 8 && (
+          <div className={classes.paginationContainer}>
+            <button
+              type="button"
+              className={classes.paginationBtn}
+              onClick={onPrevBtnHandler}
+            >
+              Prev
+            </button>
+            <span className={classes.pageNumber}>
+              {searchedPlayersObj.page + 1}
+            </span>
+            <button
+              type="button"
+              className={classes.paginationBtn}
+              onClick={onNextBtnHandler}
+            >
+              Next
+            </button>
+          </div>
+        )}
         {modalOpen && <DisplayStats player={selectedPlayer} />}
       </div>
     );

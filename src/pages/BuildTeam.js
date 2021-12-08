@@ -167,7 +167,7 @@ const names = [
   },
   {
     id: 10,
-    name: "Ryan Makena",
+    name: "Ryan Mckena",
     number: 31,
     position: "cf",
     rating: "diamond",
@@ -483,10 +483,6 @@ const BuildTeam = () => {
   const [searchedPlayers, setSearchedPlayers] = useState([]);
   const players = useSelector((state) => state.players);
 
-  useEffect(() => {
-    console.log(players);
-  }, []);
-
   const getData = (player) => {
     const playersList = [];
     console.log(player);
@@ -544,7 +540,7 @@ const BuildTeam = () => {
         }
       });
     }
-    console.log(playersList);
+
     setSearchedPlayers([...playersList]);
   };
 

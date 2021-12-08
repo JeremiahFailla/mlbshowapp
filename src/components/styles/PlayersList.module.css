@@ -66,3 +66,7 @@
 .paginationBtn:hover {
   border: 1.5px solid orange;
 }
+
+.pageNumber {
+  color: orange;
+}

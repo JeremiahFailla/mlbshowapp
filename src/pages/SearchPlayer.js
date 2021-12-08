@@ -1,13 +1,13 @@
-import {
-  onSnapshot,
-  collection,
-  query,
-  where,
-  getDocs,
-} from "@firebase/firestore";
+// import {
+//   onSnapshot,
+//   collection,
+//   query,
+//   where,
+//   getDocs,
+// } from "@firebase/firestore";
 import React, { useEffect, useState } from "react";
 import Card from "../components/layout/Card";
-import db from "./../firebase/firebase.config";
+// import db from "./../firebase/firebase.config";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./pageStyles/SearchPlayers.module.css";
 import Features from "../components/Features";
