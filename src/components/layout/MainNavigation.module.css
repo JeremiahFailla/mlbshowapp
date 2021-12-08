@@ -36,7 +36,7 @@ nav {
 }
 
 .link:hover {
-  color: rgba(255, 166, 0, 0.568);
+  color: rgb(255, 166, 0);
 }
 
 .logo {
@@ -44,4 +44,5 @@ nav {
   border-radius: 10px 0 10px 0;
   outline: 2px solid orange;
   outline-offset: 7px;
+  font-weight: 800;
 }
