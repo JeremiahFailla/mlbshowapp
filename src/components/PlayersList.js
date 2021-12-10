@@ -6,12 +6,29 @@ import { useSelector, useDispatch } from "react-redux";
 const PlayersList = (props) => {
   const modalOpen = useSelector((state) => state.modalState);
   const selectedPlayer = useSelector((state) => state.selectedPlayer);
+  const [noPlayerContent, setNoPlayerContent] = useState("");
   const dispatch = useDispatch();
   const [searchedPlayersObj, setSearchedPlayersObj] = useState({
-    players: props.players,
+    players: [],
     page: 0,
     notFirstPage: 0,
   });
+
+  useEffect(() => {
+    setNoPlayerContent("Search For Players To Select From");
+  }, []);
+
+  useEffect(() => {
+    setSearchedPlayersObj({
+      players: props.players,
+      page: 0,
+      notFirstPage: 0,
+    });
+
+    return () => {
+      setNoPlayerContent("No Players Found");
+    };
+  }, [props.players]);
 
   const openModal = () => {
     dispatch({ type: "openModal" });
@@ -33,7 +50,7 @@ const PlayersList = (props) => {
       setSearchedPlayersObj({
         ...searchedPlayersObj,
         notFirstPage: 0,
-        page: searchedPlayersObj.page - 1,
+        page: 0,
       });
       return;
     }
@@ -114,6 +131,7 @@ const PlayersList = (props) => {
               key={player.id}
               onDoubleClick={onPlayerClick.bind(this, player)}
               onClick={clickedPlayer.bind(this, player)}
+              tabIndex="0"
             >
               <div className={`flex-c ${player.rating} ${classes.rating}`}>
                 {player.overall}
@@ -152,7 +170,7 @@ const PlayersList = (props) => {
         content
       ) : (
         <div className={`flex-c`}>
-          <p className={classes.noContent}>Search For Players To Select From</p>
+          <p className={classes.noContent}>{noPlayerContent}</p>
         </div>
       )}
     </div>

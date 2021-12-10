@@ -9,19 +9,53 @@ const PlayerComparison = () => {
   const [playerTwo, setPlayerTwo] = useState("");
   const selectedPlayer = useSelector((state) => state.selectedPlayer);
   const [toggle, setToggle] = useState(true);
+  const dispatch = useDispatch();
 
   const onUnoccupiedSpotOneHandler = () => {
-    console.log(selectedPlayer);
     setPlayerOne(selectedPlayer);
+    if (selectedPlayer.positon !== "SP" && selectedPlayer.position !== "RP") {
+      setToggle(true);
+    }
+    if (
+      !playerTwo &&
+      (selectedPlayer.position === "SP" || selectedPlayer.position === "RP")
+    ) {
+      setToggle(false);
+    }
   };
 
   const onUnoccupiedSpotTwoHandler = () => {
-    console.log(selectedPlayer);
     setPlayerTwo(selectedPlayer);
+    if (selectedPlayer.positon !== "SP" && selectedPlayer.position !== "RP") {
+      setToggle(true);
+    }
+    if (
+      !playerOne &&
+      (selectedPlayer.position === "SP" || selectedPlayer.position === "RP")
+    ) {
+      setToggle(false);
+    }
   };
 
   const onChangeStatsHandler = () => {
-    setToggle(!toggle);
+    if (!playerOne && !playerTwo) {
+      setToggle(!toggle);
+      return;
+    }
+    if (
+      playerOne &&
+      (playerOne.position.includes("SP") ||
+        playerOne.position.includes("RP")) &&
+      playerTwo &&
+      (playerTwo.position.includes("SP") || playerTwo.position.includes("RP"))
+    ) {
+      setToggle(!toggle);
+      return;
+    }
+    dispatch({
+      type: "errorMessage",
+      message: "One of the players doesn't have pitching stats",
+    });
   };
 
   const onClearPlayerOneHandler = () => {

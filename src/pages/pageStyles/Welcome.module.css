@@ -1,6 +1,6 @@
 .body {
   margin: 0 auto;
-  margin-top: -200px;
+  margin-top: -50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +21,7 @@
   border-bottom: 2px solid black;
 }
 
-.title .brand {
+.brand {
   color: orange;
 }
 

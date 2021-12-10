@@ -210,11 +210,11 @@ const Player = ({ player, toggle, side }) => {
           </div>
           <div>
             <span className={`${classes.stat} ${classes.pitching}`}>
-              {player.bbPerNine}
+              {player.wPerNine}
             </span>
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
-              style={{ width: `${player.bbPerNine}px` }}
+              style={{ width: `${player.wPerNine}px` }}
             ></span>
           </div>
           <div>
@@ -297,10 +297,10 @@ const Player = ({ player, toggle, side }) => {
           <div>
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
-              style={{ width: `${player.bbPerNine}px` }}
+              style={{ width: `${player.wPerNine}px` }}
             ></span>
             <span className={`${classes.stat} ${classes.pitching}`}>
-              {player.bbPerNine}
+              {player.wPerNine}
             </span>
           </div>
           <div>

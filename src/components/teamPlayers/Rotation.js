@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import AddPlayerCard from "./AddPlayerCard";
 import classes from "./Rotation.module.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,6 +20,7 @@ const Rotation = React.memo(() => {
   }, []);
 
   const addPlayerToRotation = (i, player) => {
+    console.log(player);
     let invalid = startingRotation.some((pl) => {
       if (pl === undefined) return;
       return pl.id === player.id;
@@ -32,7 +33,10 @@ const Rotation = React.memo(() => {
     }
 
     if (invalid) {
-      console.log("Player is all ready rotation or in bullpen");
+      dispatch({
+        type: "errorMessage",
+        message: "Player is already in rotation or in bullpen",
+      });
       return;
     }
 
@@ -82,7 +86,7 @@ const Rotation = React.memo(() => {
             selectPlayerFunc={onSelectPlayerInRotation}
             swapPosition={swapRotationPositions}
             positionPlayer={false}
-            positionAllowed="sp"
+            positionAllowed="SP"
           />
         </div>
       ))}

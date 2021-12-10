@@ -5,91 +5,20 @@
 //   where,
 //   getDocs,
 // } from "@firebase/firestore";
+// import db from "./../firebase/firebase.config";
 import React, { useEffect, useState } from "react";
 import Card from "../components/layout/Card";
-// import db from "./../firebase/firebase.config";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import classes from "./pageStyles/SearchPlayers.module.css";
 import Features from "../components/Features";
 import PlayersList from "../components/PlayersList";
 import SearchBar from "../components/searchBar/SearchBar";
 import Footer from "../components/layout/Footer";
-
-// const q = query(
-//   collection(db, "players"),
-//   where("name", "==", "Austin Hays")
-// );
-// q = query(citiesRef, where("name", "==", "Austin Hays"));
-
-const names = [
-  {
-    id: 0,
-    team: "Orioles",
-    name: "Austin Hays",
-    number: 21,
-    position: "LF",
-    overall: 81,
-    bats: "R",
-    throws: "R",
-    secondary: "CF, RF",
-    weight: 210,
-    height: "6'",
-    age: 26,
-    born: "7/5/95",
-    conR: 75,
-    conL: 75,
-    pwrR: 81,
-    pwrL: 90,
-    vis: 60,
-    disc: 52,
-    clu: 80,
-    spd: 79,
-    stl: 65,
-    brAgg: 85,
-  },
-  {
-    id: 2,
-    team: "Orioles",
-    name: "John Means",
-    number: 47,
-    position: "SP",
-    overall: 83,
-    bats: "L",
-    throws: "L",
-    secondary: "",
-    weight: 235,
-    height: "6'3\"",
-    age: 27,
-    born: "Kansas",
-    conR: 6,
-    conL: 3,
-    pwrR: 0,
-    pwrL: 0,
-    vis: 2,
-    disc: 8,
-    clu: 3,
-    spd: 38,
-    stl: 0,
-    brAgg: 7,
-    sta: 83,
-    hPerNine: 81,
-    kPerNine: 56,
-    wPerNine: 86,
-    hrPerNine: 52,
-    pClu: 90,
-    ctrl: 65,
-    vel: 73,
-    brk: 98,
-  },
-];
+// import names from "./../data/data";
 
 const SearchPlayer = () => {
   const [searchedPlayers, setSearchedPlayers] = useState([]);
   const players = useSelector((state) => state.players);
-
-  useEffect(() => {
-    console.log(players);
-  }, []);
 
   // const getData = async (player) => {
   //   if (true) return;
@@ -170,7 +99,6 @@ const SearchPlayer = () => {
   // };
 
   const getData = (player) => {
-    // if (true) return;
     const playersList = [];
     console.log(player);
 
@@ -243,7 +171,7 @@ const SearchPlayer = () => {
         <div className={classes.description}>
           <p>Use this tool to search for any player on an active MLB roster</p>
         </div>
-        <PlayersList players={names} type="click" />
+        <PlayersList players={searchedPlayers} type="click" />
 
         <Features page="search" />
         <Footer />

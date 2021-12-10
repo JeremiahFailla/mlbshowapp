@@ -6,7 +6,7 @@ const MainNavigation = () => {
   return (
     <nav>
       <Link to="/" className={`${classes.link} ${classes.logo}`}>
-        GoingPro
+        HomePlate
       </Link>
       <div className={classes.navGroup}>
         <ul className={classes.linkContainer}>

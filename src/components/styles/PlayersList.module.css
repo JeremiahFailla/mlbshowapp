@@ -6,7 +6,7 @@
   padding: 6px;
 }
 
-.grid .playerCard {
+.playerCard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .grid .playerCard:hover,
-.grid .playerCard:visited {
+.grid .playerCard:focus {
   background: black;
   cursor: pointer;
   color: orange;

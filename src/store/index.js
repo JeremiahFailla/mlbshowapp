@@ -11,15 +11,14 @@ const defaultState = {
   bench: [...Array(5)],
   counter: 0,
   players: [],
+  errorMessage: "",
 };
 
-const counterReducer = (state = defaultState, action) => {
-  if (action.type === "increase") {
-    let newCount = state.counter;
-    newCount++;
+const playerReducer = (state = defaultState, action) => {
+  if (action.type === "errorMessage") {
     return {
       ...state,
-      counter: newCount,
+      errorMessage: action.message,
     };
   }
   if (action.type === "selectedPlayer") {
@@ -172,6 +171,6 @@ const counterReducer = (state = defaultState, action) => {
   return state;
 };
 
-const store = createStore(counterReducer);
+const store = createStore(playerReducer);
 
 export default store;

@@ -4,13 +4,13 @@ import classes from "./Bullpen.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import ResetBtn from "./ResetBtn";
 
-const Bullpen = () => {
+const Bullpen = React.memo(() => {
   const dispatch = useDispatch();
   const startingBullpen = useSelector((state) => state.bullpen);
-  const startingRotation = useSelector((state) => state.rotation);
 
   useEffect(() => {
     console.log("Bullpen has changed");
+    console.log(startingBullpen);
   }, [startingBullpen]);
 
   useEffect(() => {
@@ -20,18 +20,17 @@ const Bullpen = () => {
   }, []);
 
   const addPlayerToBullpen = (i, player) => {
-    let invalid = startingRotation.some((pl) => {
+    console.log(player);
+    let invalid = startingBullpen.some((pl) => {
       if (pl === undefined) return;
       return pl.id === player.id;
     });
-    if (!invalid) {
-      invalid = startingBullpen.some((pl) => {
-        if (pl === undefined) return;
-        return pl.id === player.id;
-      });
-    }
+
     if (invalid) {
-      console.log("Player is all ready rotation or in bullpen");
+      dispatch({
+        type: "errorMessage",
+        message: "Player is already in rotation or in bullpen",
+      });
       return;
     }
     dispatch({ type: "addPlayerToBullpen", index: i, player: player });
@@ -74,18 +73,18 @@ const Bullpen = () => {
           <span>{i + 1}. </span>
           <AddPlayerCard
             key={i}
-            linePosition={i}
+            lineupPosition={i}
             addPlayer={addPlayerToBullpen}
             player={el}
             selectPlayerFunc={onSelectPlayerInBullpen}
             swapPosition={swapBullpenPositions}
             positionPlayer={false}
-            positionAllowed="rp"
+            positionAllowed="RP"
           />
         </div>
       ))}
     </div>
   );
-};
+});
 
 export default Bullpen;

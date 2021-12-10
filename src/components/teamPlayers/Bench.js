@@ -33,7 +33,10 @@ const Bench = React.memo(() => {
     }
 
     if (invalid) {
-      showErrorFunc("Player is all ready lineup or on bench");
+      dispatch({
+        type: "errorMessage",
+        message: "Player is already in lineup or on bench",
+      });
       return;
     }
     dispatch({ type: "addPlayerToBench", index: i, player: player });
@@ -81,7 +84,7 @@ const Bench = React.memo(() => {
             selectPlayerFunc={onSelectPlayerOnTeam}
             swapPosition={swapBenchPositions}
             positionPlayer={true}
-            positionAllowed="c,1b,2b,3b,ss,lf,cf,rf"
+            positionAllowed="C,1B,2B,3B,SS,LF,CF,RF"
           />
         </div>
       ))}

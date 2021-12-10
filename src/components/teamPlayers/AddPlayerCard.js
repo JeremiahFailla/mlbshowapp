@@ -14,40 +14,23 @@ const AddPlayerCard = React.memo(
     positionAllowed = "",
   }) => {
     const [selected, setSelected] = useState(false);
-    const [showError, setShowError] = useState(false);
-    const [errorContent, setErrorContent] = useState("");
     const selectedPlayer = useSelector((state) => state.selectedPlayer);
     const selectedPlayerOnTeam = useSelector(
       (state) => state.selectedPlayerOnTeam
     );
     const dispatch = useDispatch();
 
-    const selectedClass = selected
-      ? `${classes.occupiedPlayerSpot} ${classes.selected}`
-      : `${classes.occupiedPlayerSpot}`;
-
-    useEffect(() => {
-      console.log(player);
-    }, [player]);
-
-    const showErrorFunc = (msg) => {
-      setErrorContent(msg);
-      setShowError(true);
-
-      setTimeout(() => {
-        console.log(msg);
-        setShowError(false);
-      }, 3000);
-    };
-
     const onSetCardHandler = () => {
       if (!selectedPlayer) return;
       if (!positionAllowed.includes(selectedPlayer.position)) {
-        showErrorFunc("The player selected cannot play this position");
+        dispatch({
+          type: "errorMessage",
+          message: "The player selected cannot play this position",
+        });
         return;
       }
       console.log("Set card");
-      addPlayer(lineupPosition, selectedPlayer, showErrorFunc);
+      addPlayer(lineupPosition, selectedPlayer);
       dispatch({ type: "unselectPlayer" });
     };
 
@@ -61,7 +44,10 @@ const AddPlayerCard = React.memo(
         return;
       }
       if (selectedPlayerOnTeam.player.id === selectedPlayerid) {
-        showErrorFunc("Cannot swap the same player");
+        dispatch({
+          type: "errorMessage",
+          message: "Cannot swap the same player",
+        });
         return;
       }
       if (selectedPlayerOnTeam.positionPlayer !== positionPlayer) {
@@ -87,9 +73,6 @@ const AddPlayerCard = React.memo(
       <React.Fragment>
         {!player && (
           <div className="flex-col">
-            <div className={classes.errorContentContainer}>
-              <p>{errorContent}</p>
-            </div>
             <div
               className={classes.unoccupiedPlayerSpot}
               onClick={onSetCardHandler}
@@ -101,20 +84,7 @@ const AddPlayerCard = React.memo(
         {player && (
           <div className="flex-col">
             <div
-              className={
-                showError
-                  ? `${classes.errorContentContainer} ${classes.showErrorContent}`
-                  : classes.errorContentContainer
-              }
-            >
-              <p>{errorContent}</p>
-            </div>
-            <div
-              className={
-                !showError
-                  ? selectedClass
-                  : `${selectedClass} ${classes.noTopRadius}`
-              }
+              className={classes.occupiedPlayerSpot}
               onClick={onSwapPlayerHandler}
               data-position={lineupPosition}
               data-id={player.id}
