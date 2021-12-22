@@ -1,4 +1,4 @@
-nav {
+.desktopNav {
   position: sticky;
   display: flex;
   justify-content: space-around;
@@ -22,11 +22,11 @@ nav {
 }
 
 .linkContainer {
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .linkContainer:last-child {
-  padding: 0;
+  padding-right: 0;
 }
 
 .link {
@@ -45,4 +45,76 @@ nav {
   outline: 2px solid orange;
   outline-offset: 7px;
   font-weight: 800;
+}
+
+.bars {
+  display: none;
+  transition: all 0.7s ease;
+}
+
+.bars:hover {
+  color: orange;
+  transform: rotate(90deg);
+}
+
+.mobileNav {
+  display: none;
+  text-align: center;
+  color: white;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: rgb(31, 30, 30);
+  animation-duration: 1s;
+  box-shadow: 0 0 10px white;
+}
+
+.moveDown {
+  animation-name: moveDown;
+}
+
+.moveUp {
+  animation-name: moveUp;
+}
+
+.mobileLinkContainer {
+  padding: 0.5rem;
+}
+
+@media (max-width: 660px) {
+  .bars {
+    display: block;
+  }
+
+  .navGroup {
+    display: none;
+  }
+
+  .desktopNav {
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    box-shadow: 0 0 10px white;
+  }
+
+  .mobileNav {
+    display: block;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 58px;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    top: 58px;
+  }
+  to {
+    top: -50px;
+  }
 }

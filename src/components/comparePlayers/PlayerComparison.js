@@ -13,7 +13,7 @@ const PlayerComparison = () => {
 
   const onUnoccupiedSpotOneHandler = () => {
     setPlayerOne(selectedPlayer);
-    if (selectedPlayer.positon !== "SP" && selectedPlayer.position !== "RP") {
+    if (selectedPlayer.position !== "SP" && selectedPlayer.position !== "RP") {
       setToggle(true);
     }
     if (
@@ -26,7 +26,7 @@ const PlayerComparison = () => {
 
   const onUnoccupiedSpotTwoHandler = () => {
     setPlayerTwo(selectedPlayer);
-    if (selectedPlayer.positon !== "SP" && selectedPlayer.position !== "RP") {
+    if (selectedPlayer.position !== "SP" && selectedPlayer.position !== "RP") {
       setToggle(true);
     }
     if (
