@@ -44,6 +44,13 @@
 .teams {
   cursor: pointer;
   font-size: 1rem;
+  background-color: white;
+}
+
+.division:disabled,
+.teams:disabled {
+  background: #8a8f90c7;
+  color: black;
 }
 
 .league {
@@ -87,5 +94,50 @@
 }
 
 .disabled {
-  background: rgba(255, 255, 255, 0.698);
+  background: #8a8f90c7;
+}
+
+select:disabled {
+  cursor: default;
+}
+
+.mobileHide {
+  display: block;
+}
+
+.mobileShow {
+  display: none;
+}
+
+@media (max-width: 660px) {
+  .form {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .mobileHide {
+    display: none;
+  }
+
+  .mobileShow {
+    display: block;
+  }
+
+  .submit {
+    border-radius: 0;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .mobileFullWidth {
+    width: 100%;
+  }
+
+  .teamSpan {
+    border-radius: 0;
+  }
+
+  .teams {
+    border-radius: 0;
+  }
 }

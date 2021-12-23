@@ -35,3 +35,9 @@
   text-align: center;
   padding: 1rem;
 }
+
+@media (max-width: 660px) {
+  .body {
+    margin-top: -180px;
+  }
+}

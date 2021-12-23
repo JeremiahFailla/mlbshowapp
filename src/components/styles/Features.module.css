@@ -26,3 +26,9 @@
 .tools a:hover {
   background: black;
 }
+
+@media (max-width: 380px) {
+  .tools {
+    flex-direction: column;
+  }
+}

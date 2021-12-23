@@ -14,6 +14,18 @@ const PlayersList = (props) => {
     notFirstPage: 0,
   });
 
+  let gridClasses;
+
+  if (searchedPlayersObj.players.length === 1) {
+    gridClasses = `${classes.gridOnePlayer}`;
+  }
+  if (searchedPlayersObj.players.length === 2) {
+    gridClasses = `${classes.gridTwoPlayer}`;
+  }
+  if (searchedPlayersObj.players.length >= 3) {
+    gridClasses = `${classes.gridThreePlayer}`;
+  }
+
   useEffect(() => {
     setNoPlayerContent("Search For Players To Select From");
   }, []);
@@ -75,7 +87,7 @@ const PlayersList = (props) => {
 
   if (props.type === "click") {
     content = (
-      <div className={classes.grid}>
+      <div className={`${classes.grid} ${gridClasses}`}>
         {searchedPlayersObj.players
           .slice(
             searchedPlayersObj.notFirstPage + searchedPlayersObj.page * 9,
@@ -119,7 +131,7 @@ const PlayersList = (props) => {
     );
   } else if (props.type === "double") {
     content = (
-      <div className={classes.grid}>
+      <div className={`${classes.grid} ${gridClasses}`}>
         {searchedPlayersObj.players
           .slice(
             searchedPlayersObj.notFirstPage + searchedPlayersObj.page * 9,

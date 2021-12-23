@@ -67,6 +67,7 @@
   background-color: rgb(31, 30, 30);
   animation-duration: 1s;
   box-shadow: 0 0 10px white;
+  font-size: 1.2rem;
 }
 
 .moveDown {
@@ -98,6 +99,10 @@
 
   .mobileNav {
     display: block;
+  }
+
+  .mobileLinkContainer {
+    padding: 0.7rem;
   }
 }
 

@@ -1,9 +1,19 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   text-align: center;
   gap: 8px;
   padding: 6px;
+  justify-items: center;
+}
+
+.gridOnePlayer {
+  grid-template-columns: repeat(1, 1fr);
+}
+.gridTwoPlayer {
+  grid-template-columns: repeat(2, 1fr);
+}
+.gridThreePlayer {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .playerCard {
@@ -15,6 +25,7 @@
   background: rgb(255, 255, 255);
   color: rgb(5, 5, 5);
   transition: all 0.3s ease-in-out;
+  width: max(150px, 75%);
 }
 
 .grid .playerCard:hover,
@@ -38,6 +49,7 @@
   padding: 2rem;
   color: #000;
   font-weight: 800;
+  text-align: center;
 }
 
 .contentContainer {
@@ -69,4 +81,16 @@
 
 .pageNumber {
   color: orange;
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

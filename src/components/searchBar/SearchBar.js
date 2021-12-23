@@ -99,7 +99,7 @@ const SearchBar = (props) => {
 
   if (division === "All") {
     visibleTeams = (
-      <div className="flex-col">
+      <div className={`flex-col ${classes.mobileFullWidth}`}>
         <span className={`${classes.teamSpan} ${classes.disabled}`}>Team</span>
         <select name="teams" id="teams" className={classes.teams} disabled>
           <option value="All">All</option>
@@ -110,7 +110,7 @@ const SearchBar = (props) => {
 
   if (division === "east" && league === "AL") {
     visibleTeams = (
-      <div className="flex-col">
+      <div className={`flex-col ${classes.mobileFullWidth}`}>
         <span className={`${classes.teamSpan}`}>Team</span>
         <select
           name="teams"
@@ -236,20 +236,24 @@ const SearchBar = (props) => {
 
   return (
     <form className={`${classes.form} flex-c`} onSubmit={onSubmitHandler}>
-      <button type="submit" className={classes.submit}>
+      <button
+        type="submit"
+        className={`${classes.submit} ${classes.mobileHide}`}
+      >
         <FaSearch className={classes.searchIcon} />
       </button>
       <div className="flex-col">
         <span className={classes.nameSpan}>Name</span>
         <input
           type="text"
-          placeholder="Juan Soto"
+          placeholder="Joe Random"
           className={classes.nameInput}
           value={name}
           onChange={onNameChangeHandler}
         />
       </div>
-      <div className="flex-col">
+
+      <div className={`flex-col ${classes.mobileFullWidth}`}>
         <span className={classes.leagueSpan}>League</span>
         <select
           name="league"
@@ -265,7 +269,7 @@ const SearchBar = (props) => {
         </select>
       </div>
       {divisionToggle ? (
-        <div className="flex-col">
+        <div className={`flex-col ${classes.mobileFullWidth}`}>
           <span className={`${classes.divisionSpan} ${classes.disabled}`}>
             Division
           </span>
@@ -284,7 +288,7 @@ const SearchBar = (props) => {
           </select>
         </div>
       ) : (
-        <div className="flex-col">
+        <div className={`flex-col ${classes.mobileFullWidth}`}>
           <span className={classes.divisionSpan}>Division</span>
           <select
             name="division"
@@ -301,6 +305,12 @@ const SearchBar = (props) => {
       )}
 
       {visibleTeams}
+      <button
+        type="submit"
+        className={`${classes.submit} ${classes.mobileShow}`}
+      >
+        <FaSearch className={classes.searchIcon} />
+      </button>
     </form>
   );
 };
