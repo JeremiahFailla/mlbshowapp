@@ -114,38 +114,42 @@ const TeamAverages = () => {
   if (toggleHitting) {
     content = (
       <React.Fragment>
-        <div className="flex-c">
-          <div>
-            <span className={classes.wording}>Contact</span>
-            <span className={classes.stat}>
-              {positionPlayerAverages.contact
-                ? positionPlayerAverages.contact.toFixed(0)
-                : 0}
-            </span>
+        <div className={`flex-c ${classes.wrap}`}>
+          <div className="flex-c">
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>Contact</span>
+              <span className={classes.stat}>
+                {positionPlayerAverages.contact
+                  ? positionPlayerAverages.contact.toFixed(0)
+                  : 0}
+              </span>
+            </div>
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>Power</span>
+              <span className={classes.stat}>
+                {positionPlayerAverages.power
+                  ? positionPlayerAverages.power.toFixed(0)
+                  : 0}
+              </span>
+            </div>
           </div>
-          <div>
-            <span className={classes.wording}>Power</span>
-            <span className={classes.stat}>
-              {positionPlayerAverages.power
-                ? positionPlayerAverages.power.toFixed(0)
-                : 0}
-            </span>
-          </div>
-          <div>
-            <span className={classes.wording}>Speed</span>
-            <span className={classes.stat}>
-              {positionPlayerAverages.speed
-                ? positionPlayerAverages.speed.toFixed(0)
-                : 0}
-            </span>
-          </div>
-          <div>
-            <span className={classes.wording}>Fielding</span>
-            <span className={classes.stat}>
-              {positionPlayerAverages.fielding
-                ? positionPlayerAverages.fielding.toFixed(0)
-                : 0}
-            </span>
+          <div className={`flex-c`}>
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>Speed</span>
+              <span className={classes.stat}>
+                {positionPlayerAverages.speed
+                  ? positionPlayerAverages.speed.toFixed(0)
+                  : 0}
+              </span>
+            </div>
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>Fielding</span>
+              <span className={classes.stat}>
+                {positionPlayerAverages.fielding
+                  ? positionPlayerAverages.fielding.toFixed(0)
+                  : 0}
+              </span>
+            </div>
           </div>
         </div>
       </React.Fragment>
@@ -153,38 +157,42 @@ const TeamAverages = () => {
   } else {
     content = (
       <React.Fragment>
-        <div className="flex-c">
-          <div>
-            <span className={classes.wording}>H/9</span>
-            <span className={classes.stat}>
-              {pitchingPlayerAverages.hPerNine
-                ? pitchingPlayerAverages.hPerNine.toFixed(0)
-                : 0}
-            </span>
+        <div className={`flex-c ${classes.wrap}`}>
+          <div className="flex-c">
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>H/9</span>
+              <span className={classes.stat}>
+                {pitchingPlayerAverages.hPerNine
+                  ? pitchingPlayerAverages.hPerNine.toFixed(0)
+                  : 0}
+              </span>
+            </div>
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>W/9</span>
+              <span className={classes.stat}>
+                {pitchingPlayerAverages.wPerNine
+                  ? pitchingPlayerAverages.wPerNine.toFixed(0)
+                  : 0}
+              </span>
+            </div>
           </div>
-          <div>
-            <span className={classes.wording}>W/9</span>
-            <span className={classes.stat}>
-              {pitchingPlayerAverages.wPerNine
-                ? pitchingPlayerAverages.wPerNine.toFixed(0)
-                : 0}
-            </span>
-          </div>
-          <div>
-            <span className={classes.wording}>K/9</span>
-            <span className={classes.stat}>
-              {pitchingPlayerAverages.kPerNine
-                ? pitchingPlayerAverages.kPerNine.toFixed(0)
-                : 0}
-            </span>
-          </div>
-          <div>
-            <span className={classes.wording}>Velocity</span>
-            <span className={classes.stat}>
-              {pitchingPlayerAverages.velocity
-                ? pitchingPlayerAverages.velocity.toFixed(0)
-                : 0}
-            </span>
+          <div className="flex-c">
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>K/9</span>
+              <span className={classes.stat}>
+                {pitchingPlayerAverages.kPerNine
+                  ? pitchingPlayerAverages.kPerNine.toFixed(0)
+                  : 0}
+              </span>
+            </div>
+            <div className={classes.flexCol}>
+              <span className={classes.wording}>Velocity</span>
+              <span className={classes.stat}>
+                {pitchingPlayerAverages.velocity
+                  ? pitchingPlayerAverages.velocity.toFixed(0)
+                  : 0}
+              </span>
+            </div>
           </div>
         </div>
       </React.Fragment>
@@ -199,7 +207,7 @@ const TeamAverages = () => {
       <button className={classes.btn} onClick={onToggleTeamAveragesHandler}>
         {toggleHitting ? "Show Pitching Averages" : "Show Hitting Averages"}
       </button>
-      <div className={`flex-col ${classes.contentContainer}`}>{content}</div>
+      <div className={`flex-c ${classes.contentContainer}`}>{content}</div>
     </div>
   );
 };

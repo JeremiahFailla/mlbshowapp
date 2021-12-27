@@ -49,29 +49,38 @@ const DisplayStats = ({ player }) => {
           <span>Position: {player.position}</span>
           <span>Overall: {player.overall}</span>
         </div>
-
-        <table>
-          <tbody>
-            <tr>
-              <th>Bats</th>
-              <th>Throws</th>
-              <th>Secondary</th>
-              <th>Weight</th>
-              <th>Height</th>
-              <th>Age</th>
-              <th>Born</th>
-            </tr>
-            <tr>
-              <td>{player.bats}</td>
-              <td>{player.throws}</td>
-              <td>{player.secondary}</td>
-              <td>{player.weight}</td>
-              <td>{player.height}</td>
-              <td>{player.age}</td>
-              <td>{player.born}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className={`${classes.generalPlayerInfo} flex-c`}>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Bat</span>
+            <span className={`${classes.playerStat}`}>{player.bats}</span>
+          </div>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Throws</span>
+            <span className={`${classes.playerStat}`}>{player.throws}</span>
+          </div>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Secondary</span>
+            <span className={`${classes.playerStat}`}>
+              {player.secondary ? player.secondary : "None"}
+            </span>
+          </div>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Weight</span>
+            <span className={`${classes.playerStat}`}>{player.weight}</span>
+          </div>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Height</span>
+            <span className={`${classes.playerStat}`}>{player.height}</span>
+          </div>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Age</span>
+            <span className={`${classes.playerStat}`}>{player.age}</span>
+          </div>
+          <div className={classes.statContainer}>
+            <span className={`${classes.label}`}>Born</span>
+            <span className={`${classes.playerStat}`}>{player.born}</span>
+          </div>
+        </div>
         {toggle && <PositionPlayerStats player={player} />}
         {!toggle && <PitcherPlayerStats player={player} />}
         <table>

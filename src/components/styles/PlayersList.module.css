@@ -69,7 +69,6 @@
   border-radius: 5px;
   background: white;
   color: orange;
-  /* border: 1.5px solid orange; */
   margin: 0 0.3em;
   transition: all 0.3s ease;
   border: 1.5px solid transparent;
@@ -84,13 +83,14 @@
 }
 
 @media (max-width: 500px) {
-  .grid {
+  .gridThreePlayer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 400px) {
-  .grid {
+  .gridThreePlayer,
+  .gridTwoPlayer {
     grid-template-columns: repeat(1, 1fr);
   }
 }

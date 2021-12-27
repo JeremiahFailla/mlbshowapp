@@ -12,6 +12,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   background: rgb(29, 29, 29);
+  padding-bottom: 1rem;
 }
 
 #root {
@@ -31,6 +32,18 @@ body {
 
 .flex {
   display: flex;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .diamond {

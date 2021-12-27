@@ -6,11 +6,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nameArea span {
-  padding: 10px 20px;
+  padding: 10px;
   color: #000;
+}
+
+.generalPlayerInfo {
+  flex-wrap: wrap;
+  border-top: 1px solid black;
+}
+
+.statContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-grow: 1;
+  padding: 0.3rem 1rem;
+}
+
+.label {
+  color: black;
+}
+
+.playerStat {
+  color: black;
 }
 
 td {

@@ -14,6 +14,8 @@
   border-radius: 2000px;
   background: rgba(255, 255, 255, 0.349);
   margin: 0.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .active {
@@ -29,7 +31,7 @@
 .btn {
   padding: 0.5rem;
   background: transparent;
-
+  flex-grow: 1;
   outline: 0;
   border-radius: 2000px;
   cursor: pointer;
@@ -39,6 +41,7 @@
 .starters {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .positionPlayers,
@@ -75,5 +78,17 @@
   }
   to {
     margin-left: 0;
+  }
+}
+
+@media (max-width: 415px) {
+  .positionPlayersBtnCont,
+  .pitcherPlayersBtnCont {
+    border-radius: 20px;
+  }
+
+  .positionPlayers,
+  .pitcherPlayers {
+    padding: 0;
   }
 }

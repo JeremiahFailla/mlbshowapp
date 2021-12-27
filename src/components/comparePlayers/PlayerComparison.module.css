@@ -12,6 +12,7 @@
   border-right: 1px solid orange;
   border-left: 1px solid orange;
   padding: 0.5rem 0;
+  position: relative;
 }
 
 .toggleBtn {
@@ -30,7 +31,7 @@
 }
 
 .clearPlayerBtn {
-  margin: 0 4.5rem;
+  margin: 0 auto;
   margin-bottom: 1rem;
   color: orange;
   background: transparent;
@@ -45,7 +46,8 @@
 }
 
 .stats span {
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
 }
 
 .playerContainer {
@@ -65,8 +67,9 @@
 .unoccupiedPlayerSpot1,
 .unoccupiedPlayerSpot2 {
   background: rgb(63, 63, 63);
-  padding: 0.7rem;
-  width: 200px !important;
+  padding: 0.7rem 2rem;
+  /* width: 200px !important;
+  max-width: 200px !important; */
   text-align: center;
   margin-top: 0;
   border-radius: 5000px;
@@ -94,4 +97,16 @@
 
 .pitching {
   color: orange;
+}
+
+.flexWithWrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.PlayerAndStatContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }

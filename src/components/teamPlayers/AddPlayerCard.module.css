@@ -1,7 +1,7 @@
 .unoccupiedPlayerSpot {
   background: rgb(63, 63, 63);
   padding: 0.7rem;
-  width: 350px;
+  width: 250px;
   text-align: center;
   margin: 0.7rem;
   margin-top: 0;
@@ -16,7 +16,7 @@
 
 .occupiedPlayerSpot {
   padding: 0.7rem;
-  width: 350px;
+  width: 250px;
   text-align: center;
   margin: 0.7rem;
   margin-top: 0;

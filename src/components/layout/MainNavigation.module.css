@@ -1,13 +1,17 @@
-.desktopNav {
+nav {
+  position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.desktopNav {
   display: flex;
   justify-content: space-around;
   padding: 1rem 1rem;
   font-size: 1.3rem;
   color: rgb(255, 255, 255);
   background-color: rgb(31, 30, 30);
-  top: 0;
-  z-index: 100;
+
   box-shadow: 0 0 10px white;
 }
 
@@ -108,9 +112,11 @@
 
 @keyframes moveDown {
   from {
-    top: -50px;
+    /* transform: translateY(-50px); */
+    top: -58px;
   }
   to {
+    /* transform: translateY(58px); */
     top: 58px;
   }
 }

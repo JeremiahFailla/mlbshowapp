@@ -107,7 +107,7 @@ const PlayerComparison = () => {
       >
         {toggle ? "Show Pitching Stats" : "Show Batting Stats"}
       </button>
-      <div>
+      <div className={classes.flexWithWrap}>
         <button
           type="button"
           className={classes.clearPlayerBtn}
@@ -123,7 +123,7 @@ const PlayerComparison = () => {
           Clear Player Two
         </button>
       </div>
-      <div className="flex-c relative">
+      <div className={`relative ${classes.PlayerAndStatContainer}`}>
         <div className={`${classes.playerOne} flex-col`}>
           {!playerOne && (
             <button

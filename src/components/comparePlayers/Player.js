@@ -7,7 +7,7 @@ const Player = ({ player, toggle, side }) => {
     if (side === "left") {
       content = (
         <React.Fragment>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.conR}
             </span>
@@ -16,7 +16,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.conR}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.conL}
             </span>
@@ -25,7 +25,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.conL}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.pwrR}
             </span>
@@ -34,7 +34,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.pwrR}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.pwrL}
             </span>
@@ -43,7 +43,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.pwrL}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.vis}
             </span>
@@ -52,7 +52,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.vis}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.disc}
             </span>
@@ -61,7 +61,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.disc}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.clu}
             </span>
@@ -70,7 +70,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.clu}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.btn}
             </span>
@@ -79,7 +79,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.btn}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.batting}`}>
               {player.drgBtn}
             </span>
@@ -93,7 +93,7 @@ const Player = ({ player, toggle, side }) => {
     } else {
       content = (
         <React.Fragment>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.conR}px` }}
@@ -102,7 +102,7 @@ const Player = ({ player, toggle, side }) => {
               {player.conR}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.conL}px` }}
@@ -111,7 +111,7 @@ const Player = ({ player, toggle, side }) => {
               {player.conL}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.pwrR}px` }}
@@ -120,7 +120,7 @@ const Player = ({ player, toggle, side }) => {
               {player.pwrR}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.pwrL}px` }}
@@ -129,7 +129,7 @@ const Player = ({ player, toggle, side }) => {
               {player.pwrL}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.vis}px` }}
@@ -138,7 +138,7 @@ const Player = ({ player, toggle, side }) => {
               {player.vis}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.disc}px` }}
@@ -147,7 +147,7 @@ const Player = ({ player, toggle, side }) => {
               {player.disc}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.clu}px` }}
@@ -156,7 +156,7 @@ const Player = ({ player, toggle, side }) => {
               {player.clu}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.btn}px` }}
@@ -165,7 +165,7 @@ const Player = ({ player, toggle, side }) => {
               {player.btn}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.battingBar}`}
               style={{ width: `${player.drgBtn}px` }}
@@ -181,7 +181,7 @@ const Player = ({ player, toggle, side }) => {
     if (side === "left") {
       content = (
         <React.Fragment>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.sta}
             </span>
@@ -190,7 +190,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.sta}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.hPerNine}
             </span>
@@ -199,7 +199,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.hPerNine}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.kPerNine}
             </span>
@@ -208,7 +208,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.kPerNine}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.wPerNine}
             </span>
@@ -217,7 +217,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.wPerNine}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.hrPerNine}
             </span>
@@ -226,7 +226,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.hrPerNine}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.pClu}
             </span>
@@ -235,7 +235,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.pClu}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.ctrl}
             </span>
@@ -244,7 +244,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.ctrl}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.vel}
             </span>
@@ -253,7 +253,7 @@ const Player = ({ player, toggle, side }) => {
               style={{ width: `${player.vel}px` }}
             ></span>
           </div>
-          <div>
+          <div className="flex-end">
             <span className={`${classes.stat} ${classes.pitching}`}>
               {player.brk}
             </span>
@@ -267,7 +267,7 @@ const Player = ({ player, toggle, side }) => {
     } else {
       content = (
         <React.Fragment>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.sta}px` }}
@@ -276,7 +276,7 @@ const Player = ({ player, toggle, side }) => {
               {player.sta}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.hPerNine}px` }}
@@ -285,7 +285,7 @@ const Player = ({ player, toggle, side }) => {
               {player.hPerNine}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.kPerNine}px` }}
@@ -294,7 +294,7 @@ const Player = ({ player, toggle, side }) => {
               {player.kPerNine}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.wPerNine}px` }}
@@ -303,7 +303,7 @@ const Player = ({ player, toggle, side }) => {
               {player.wPerNine}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.hrPerNine}px` }}
@@ -312,7 +312,7 @@ const Player = ({ player, toggle, side }) => {
               {player.hrPerNine}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.pClu}px` }}
@@ -321,7 +321,7 @@ const Player = ({ player, toggle, side }) => {
               {player.pClu}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.ctrl}px` }}
@@ -330,7 +330,7 @@ const Player = ({ player, toggle, side }) => {
               {player.ctrl}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.vel}px` }}
@@ -339,7 +339,7 @@ const Player = ({ player, toggle, side }) => {
               {player.vel}
             </span>
           </div>
-          <div>
+          <div className="flex-start">
             <span
               className={`${classes.statBar} ${classes.pitchingBar}`}
               style={{ width: `${player.brk}px` }}
@@ -358,12 +358,12 @@ const Player = ({ player, toggle, side }) => {
   if (side === "left") {
     fullContent = (
       <div className={classes.left}>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.white}`}>
             {player.name}
           </span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.white}`}>
             {player.overall}
           </span>
@@ -373,7 +373,7 @@ const Player = ({ player, toggle, side }) => {
           ></span>
         </div>
         {content}
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.fielding}`}>
             {player.dur}
           </span>
@@ -382,7 +382,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.dur}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.fielding}`}>
             {player.fld}
           </span>
@@ -391,7 +391,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.fld}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.fielding}`}>
             {player.armStr}
           </span>
@@ -400,7 +400,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.armStr}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.fielding}`}>
             {player.armAcc}
           </span>
@@ -409,7 +409,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.armAcc}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.fielding}`}>
             {player.reac}
           </span>
@@ -418,7 +418,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.reac}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.running}`}>
             {player.spd}
           </span>
@@ -427,7 +427,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.spd}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.running}`}>
             {player.stl}
           </span>
@@ -436,7 +436,7 @@ const Player = ({ player, toggle, side }) => {
             style={{ width: `${player.stl}px` }}
           ></span>
         </div>
-        <div>
+        <div className="flex-end">
           <span className={`${classes.stat} ${classes.running}`}>
             {player.brAgg}
           </span>
@@ -450,12 +450,12 @@ const Player = ({ player, toggle, side }) => {
   } else {
     fullContent = (
       <div>
-        <div>
+        <div className="flex-start">
           <span className={`${classes.stat} ${classes.white}`}>
             {player.name}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.whiteBar}`}
             style={{ width: `${player.overall}px` }}
@@ -465,7 +465,7 @@ const Player = ({ player, toggle, side }) => {
           </span>
         </div>
         {content}
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.fieldingBar}`}
             style={{ width: `${player.dur}px` }}
@@ -474,7 +474,7 @@ const Player = ({ player, toggle, side }) => {
             {player.dur}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.fieldingBar}`}
             style={{ width: `${player.fld}px` }}
@@ -483,7 +483,7 @@ const Player = ({ player, toggle, side }) => {
             {player.fld}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.fieldingBar}`}
             style={{ width: `${player.armStr}px` }}
@@ -492,7 +492,7 @@ const Player = ({ player, toggle, side }) => {
             {player.armStr}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.fieldingBar}`}
             style={{ width: `${player.armAcc}px` }}
@@ -501,7 +501,7 @@ const Player = ({ player, toggle, side }) => {
             {player.armAcc}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.fieldingBar}`}
             style={{ width: `${player.reac}px` }}
@@ -510,7 +510,7 @@ const Player = ({ player, toggle, side }) => {
             {player.reac}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.runningBar}`}
             style={{ width: `${player.spd}px` }}
@@ -519,7 +519,7 @@ const Player = ({ player, toggle, side }) => {
             {player.spd}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.runningBar}`}
             style={{ width: `${player.stl}px` }}
@@ -528,7 +528,7 @@ const Player = ({ player, toggle, side }) => {
             {player.stl}
           </span>
         </div>
-        <div>
+        <div className="flex-start">
           <span
             className={`${classes.statBar} ${classes.runningBar}`}
             style={{ width: `${player.brAgg}px` }}
