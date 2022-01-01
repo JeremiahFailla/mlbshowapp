@@ -2,13 +2,15 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100vh;
-  z-index: 2000;
+  z-index: 5000;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.modal {
+/* .modal {
   position: absolute;
   top: 20vh;
   left: 5%;
@@ -19,6 +21,30 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 3000;
   animation: slide-down 300ms ease-out forwards;
+} */
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 6000; /* Sit on top */
+  padding: 100px 0px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background: rgba(0, 0, 0, 0.417);
+}
+
+.content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.noScroll {
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
