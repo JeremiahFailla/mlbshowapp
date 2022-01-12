@@ -6,7 +6,7 @@ const Footer = () => {
     <div className={classes.container}>
       <a
         className={classes.content}
-        href="https://github.com/JeremiahFailla"
+        href="https://jeremiahfailla.com/"
         target="_blank"
       >
         &copy; Jeremiah Failla 2021

@@ -10,7 +10,7 @@ const PositionPlayerStats = ({ player }) => {
             <th className={classes.batting}>CON R</th>
             <th className={classes.batting}>CON L</th>
             <th className={classes.batting}>PWR R</th>
-            <th className={classes.batting}>PWR R</th>
+            <th className={classes.batting}>PWR L</th>
             <th className={classes.batting}>VIS</th>
             <th className={classes.batting}>DISC</th>
             <th className={classes.batting}>CLU</th>

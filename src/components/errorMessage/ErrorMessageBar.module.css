@@ -1,9 +1,10 @@
 .errorBar {
-  position: sticky;
+  position: fixed;
   top: 57px;
-  background: red;
+  background: rgba(238, 33, 33, 0.89);
   z-index: 1000;
   text-align: center;
+  width: 100%;
 }
 
 .errorMsg {

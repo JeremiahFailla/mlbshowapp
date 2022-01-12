@@ -3,16 +3,12 @@ import classes from "./PlayerStatsModal.module.css";
 import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
 
-const Backdrop = () => {
+const ModalOverlay = (props) => {
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch({ type: "closeModal" });
   };
-  return <div className={classes.backdrop} onClick={closeModal}></div>;
-};
-
-const ModalOverlay = (props) => {
   useEffect(() => {
     document.querySelector("body").classList.add(`${classes.noScroll}`);
     return () => {
@@ -20,7 +16,7 @@ const ModalOverlay = (props) => {
     };
   }, []);
   return (
-    <div className={classes.modal}>
+    <div className={classes.modal} onClick={closeModal}>
       <div className={classes.content}>{props.children}</div>
     </div>
   );
@@ -29,7 +25,6 @@ const ModalOverlay = (props) => {
 const portalElement = document.getElementById("overlays");
 
 const PlayerStatsModal = (props) => {
-  // {ReactDOM.createPortal(<Backdrop />, portalElement)}
   return (
     <Fragment>
       {ReactDOM.createPortal(
