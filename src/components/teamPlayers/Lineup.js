@@ -10,10 +10,6 @@ const Lineup = React.memo(() => {
   const bench = useSelector((state) => state.bench);
 
   useEffect(() => {
-    console.log("Starting Lineup Changed");
-  }, [startingLineup]);
-
-  useEffect(() => {
     return () => {
       dispatch({ type: "unselectPlayerOnTeam" });
     };
@@ -58,7 +54,6 @@ const Lineup = React.memo(() => {
   };
 
   const swapLineupPositions = (player, position) => {
-    console.log("Swap Lineup Postions");
     dispatch({
       type: "swapPlayersInLineup",
       player: player,
@@ -78,7 +73,7 @@ const Lineup = React.memo(() => {
         <div className={`flex-c`}>
           <span>{i + 1}. </span>
           <AddPlayerCard
-            key={Math.random()}
+            key={i}
             lineupPosition={i}
             addPlayer={addPlayerToLineup}
             player={el}

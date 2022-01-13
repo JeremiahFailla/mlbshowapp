@@ -4,40 +4,46 @@ import classes from "./DisplayStats.module.css";
 const PitcherPlayerStats = ({ player }) => {
   return (
     <React.Fragment>
-      <table>
-        <tbody>
-          <tr>
-            <th className={`${classes.pitching} ${classes.pitching1}`}>STA</th>
-            <th className={`${classes.pitching} ${classes.pitching1}`}>H/9</th>
-            <th className={`${classes.pitching} ${classes.pitching1}`}>K/9</th>
-            <th className={`${classes.pitching} ${classes.pitching1}`}>BB/9</th>
-            <th className={`${classes.pitching} ${classes.pitching1}`}>HR/9</th>
-          </tr>
-          <tr>
-            <td>{player.sta}</td>
-            <td>{player.hPerNine}</td>
-            <td>{player.kPerNine}</td>
-            <td>{player.wPerNine}</td>
-            <td>{player.hrPerNine}</td>
-          </tr>
-        </tbody>
-      </table>
-      <table>
-        <tbody>
-          <tr>
-            <th className={`${classes.pitching} ${classes.pitching2}`}>CLU</th>
-            <th className={`${classes.pitching} ${classes.pitching2}`}>CTRL</th>
-            <th className={`${classes.pitching} ${classes.pitching2}`}>VEL</th>
-            <th className={`${classes.pitching} ${classes.pitching2}`}>BRK</th>
-          </tr>
-          <tr>
-            <td>{player.pClu}</td>
-            <td>{player.ctrl}</td>
-            <td>{player.vel}</td>
-            <td>{player.brk}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className={classes.statsRow}>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>STA</span>
+          <span className={classes.playerStat}>{player.sta}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>H/9</span>
+          <span className={classes.playerStat}>{player.hPerNine}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>K/9</span>
+          <span className={classes.playerStat}>{player.kPerNine}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>BB/9</span>
+          <span className={classes.playerStat}>{player.wPerNine}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>HR/9</span>
+          <span className={classes.playerStat}>{player.hrPerNine}</span>
+        </div>
+      </div>
+      <div className={classes.statsRow}>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>CLU</span>
+          <span className={classes.playerStat}>{player.pClu}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>CTRL</span>
+          <span className={classes.playerStat}>{player.ctrl}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>VEL</span>
+          <span className={classes.playerStat}>{player.vel}</span>
+        </div>
+        <div className={classes.individualStat}>
+          <span className={classes.pitching}>BRK</span>
+          <span className={classes.playerStat}>{player.brk}</span>
+        </div>
+      </div>
     </React.Fragment>
   );
 };

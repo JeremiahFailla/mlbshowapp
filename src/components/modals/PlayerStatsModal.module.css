@@ -1,7 +1,6 @@
 .modal {
   position: fixed; /* Stay in place */
   z-index: 6000; /* Sit on top */
-  padding: 100px 0px; /* Location of the box */
   left: 0;
   top: 0;
   bottom: 0;
@@ -10,14 +9,13 @@
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background: rgba(0, 0, 0, 0.417);
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }
 
 .content {
   background-color: #fefefe;
-  margin: auto;
   padding: 20px;
   border: 1px solid rgb(172, 172, 172);
   animation-name: slide-down;

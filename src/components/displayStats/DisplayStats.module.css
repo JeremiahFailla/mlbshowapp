@@ -24,7 +24,7 @@
   flex-direction: column;
   text-align: center;
   flex-grow: 1;
-  padding: 0.3rem 1rem;
+  padding: 15px 1rem;
 }
 
 .label {
@@ -35,41 +35,41 @@
   color: black;
 }
 
-td {
-  text-align: center;
-}
-
 table {
   border-top: 1px solid black;
   margin-bottom: 1rem;
   padding-top: 10px;
 }
 
+.statsRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.individualStat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  padding: 15px;
+  flex-grow: 1;
+}
+
 .running {
   color: rgb(0, 132, 255);
-  width: calc(100% / 3);
 }
 
 .fielding {
   color: green;
-  width: calc(100% / 4);
 }
 
 .pitching {
   color: orange;
 }
 
-.pitching1 {
-  width: calc(100% / 5);
-}
-
-.pitching2 {
-  width: calc(100% / 4);
-}
-
 .batting {
   color: rgb(251, 193, 0);
-  width: calc(100% / 7);
 }
 
 .btn {
@@ -116,8 +116,4 @@ table {
 .toggleBtn:hover {
   border-color: orange;
   color: orange;
-}
-
-table {
-  table-layout: fixed;
 }

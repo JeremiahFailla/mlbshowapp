@@ -9,18 +9,12 @@ const Bullpen = React.memo(() => {
   const startingBullpen = useSelector((state) => state.bullpen);
 
   useEffect(() => {
-    console.log("Bullpen has changed");
-    console.log(startingBullpen);
-  }, [startingBullpen]);
-
-  useEffect(() => {
     return () => {
       dispatch({ type: "unselectPlayerOnTeam" });
     };
   }, []);
 
   const addPlayerToBullpen = (i, player) => {
-    console.log(player);
     let invalid = startingBullpen.some((pl) => {
       if (pl === undefined) return;
       return pl.id === player.id;

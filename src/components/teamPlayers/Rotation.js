@@ -10,17 +10,12 @@ const Rotation = React.memo(() => {
   const bullpen = useSelector((state) => state.bullpen);
 
   useEffect(() => {
-    console.log("Rotation Component Rerendered");
-  }, [startingRotation]);
-
-  useEffect(() => {
     return () => {
       dispatch({ type: "unselectPlayerOnTeam" });
     };
   }, []);
 
   const addPlayerToRotation = (i, player) => {
-    console.log(player);
     let invalid = startingRotation.some((pl) => {
       if (pl === undefined) return;
       return pl.id === player.id;
@@ -59,7 +54,6 @@ const Rotation = React.memo(() => {
   };
 
   const swapRotationPositions = (player, position) => {
-    console.log("Swap Rotation Positions");
     dispatch({
       type: "swapPlayersInRotation",
       player: player,

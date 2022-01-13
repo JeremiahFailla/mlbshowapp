@@ -12,7 +12,6 @@ const TeamAverages = () => {
   const bullpen = useSelector((state) => state.bullpen);
 
   useEffect(() => {
-    console.log("Averages Component Rerender");
     if (toggleHitting) {
       calcHittingAverages();
     } else {
@@ -106,7 +105,6 @@ const TeamAverages = () => {
   };
 
   const onToggleTeamAveragesHandler = () => {
-    console.log("Toggle");
     setToggleHitting(!toggleHitting);
   };
 

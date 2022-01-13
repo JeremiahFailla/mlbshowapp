@@ -6,8 +6,10 @@ import { useDispatch } from "react-redux";
 const ModalOverlay = (props) => {
   const dispatch = useDispatch();
 
-  const closeModal = () => {
-    dispatch({ type: "closeModal" });
+  const closeModal = (e) => {
+    if (e.target.dataset.modal === "modal") {
+      dispatch({ type: "closeModal" });
+    }
   };
   useEffect(() => {
     document.querySelector("body").classList.add(`${classes.noScroll}`);
@@ -16,7 +18,7 @@ const ModalOverlay = (props) => {
     };
   }, []);
   return (
-    <div className={classes.modal} onClick={closeModal}>
+    <div className={classes.modal} onClick={closeModal} data-modal="modal">
       <div className={classes.content}>{props.children}</div>
     </div>
   );

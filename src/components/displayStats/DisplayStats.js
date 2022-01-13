@@ -19,6 +19,7 @@ const DisplayStats = ({ player }) => {
   };
 
   const onToggleStatsHandler = () => {
+    console.log("Change showing stats");
     setToggle(!toggle);
   };
 
@@ -83,36 +84,39 @@ const DisplayStats = ({ player }) => {
         </div>
         {toggle && <PositionPlayerStats player={player} />}
         {!toggle && <PitcherPlayerStats player={player} />}
-        <table>
-          <tbody>
-            <tr>
-              <th className={classes.fielding}>FLD</th>
-              <th className={classes.fielding}>ARM STR</th>
-              <th className={classes.fielding}>ARM ACC</th>
-              <th className={classes.fielding}>REAC</th>
-            </tr>
-            <tr>
-              <td>{player.conR}</td>
-              <td>{player.conL}</td>
-              <td>{player.pwrR}</td>
-              <td>{player.pwrL}</td>
-            </tr>
-          </tbody>
-        </table>
-        <table>
-          <tbody>
-            <tr>
-              <th className={classes.running}>SPD</th>
-              <th className={classes.running}>STL</th>
-              <th className={classes.running}>BR AGG</th>
-            </tr>
-            <tr>
-              <td>{player.spd}</td>
-              <td>{player.stl}</td>
-              <td>{player.brAgg}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className={classes.statsRow}>
+          <div className={classes.individualStat}>
+            <span className={classes.fielding}>FLD</span>
+            <span className={classes.playerStat}>{player.fld}</span>
+          </div>
+          <div className={classes.individualStat}>
+            <span className={classes.fielding}>ARM STR</span>
+            <span className={classes.playerStat}>{player.armStr}</span>
+          </div>
+          <div className={classes.individualStat}>
+            <span className={classes.fielding}>ARM ACC</span>
+            <span className={classes.playerStat}>{player.armAcc}</span>
+          </div>
+          <div className={classes.individualStat}>
+            <span className={classes.fielding}>REAC</span>
+            <span className={classes.playerStat}>{player.reac}</span>
+          </div>
+        </div>
+
+        <div className={classes.statsRow}>
+          <div className={classes.individualStat}>
+            <span className={classes.running}>SPD</span>
+            <span className={classes.playerStat}>{player.spd}</span>
+          </div>
+          <div className={classes.individualStat}>
+            <span className={classes.running}>STL</span>
+            <span className={classes.playerStat}>{player.stl}</span>
+          </div>
+          <div className={classes.individualStat}>
+            <span className={classes.running}>BR AGG</span>
+            <span className={classes.playerStat}>{player.brAgg}</span>
+          </div>
+        </div>
       </div>
     </PlayerStatsModal>
   );

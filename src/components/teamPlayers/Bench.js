@@ -10,10 +10,6 @@ const Bench = React.memo(() => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("Bench has changed");
-  }, [startingBench]);
-
-  useEffect(() => {
     return () => {
       dispatch({ type: "unselectPlayerOnTeam" });
     };
@@ -58,7 +54,6 @@ const Bench = React.memo(() => {
   };
 
   const swapBenchPositions = (player, position) => {
-    console.log("Swap Bench Postions");
     dispatch({
       type: "swapPlayersOnBench",
       player: player,
