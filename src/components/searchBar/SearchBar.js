@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import classes from "./SearchBar.module.css";
 import { useDispatch } from "react-redux";

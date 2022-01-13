@@ -146,6 +146,7 @@ select:disabled {
     height: 100%;
   }
 
+  .nameInput,
   .teamSpan,
   .teams {
     border-radius: 0;
