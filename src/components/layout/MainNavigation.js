@@ -50,7 +50,7 @@ const MainNavigation = () => {
         </div>
       </div>
       {showMobileNav && (
-        <div className={`${classes.mobileNav} ${classes.moveDown}`}>
+        <div className={classes.mobileNav}>
           <ul className={classes.mobileLinkContainer}>
             <NavLink
               to="/build-team"
